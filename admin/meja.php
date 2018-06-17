@@ -8,9 +8,10 @@
 	<div class="row">
 	<div class="col-md-3">
 		<div class="thumbnail">
-			<img src="assets/img/meja_kosong.png">
-			<a href="" class="btn btn-primary">Ubah</a>
-			<a href="" class="btn btn-danger">Hapus</a>
+			<a href="index.php?halaman=pesan">
+				<img src="../assets/img/meja/penuh.jpg">
+			</a>
+			
 		</div>
 	</div>
 </div>

@@ -82,7 +82,7 @@
 		<li class="text-center">
                     <img src="../assets/img/find_user.png" class="user-image img-responsive"/>
 					</li>
-    <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Pesan</a></li>
+    <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
     <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
     <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
     <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
@@ -102,8 +102,8 @@
                             include'menu.php';
 
                         }
-                        elseif ($_GET['halaman']=='meja') {
-                            include'meja.php';
+                        elseif ($_GET['halaman']=='pesan') {
+                            include'pesan.php';
                         }
                         elseif ($_GET['halaman']=='transaksi') {
                             include'transaksi.php';
@@ -136,7 +136,7 @@
                     }
 
                     else{
-                        include'pesan.php';
+                        include'meja.php';
                     }
                  ?>
             </div>
