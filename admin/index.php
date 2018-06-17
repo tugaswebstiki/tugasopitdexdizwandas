@@ -12,6 +12,7 @@
     <link href="../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="../assets/css/ganti.css" rel="stylesheet" />
     
     <script>
         function bacaGambar(input) {
