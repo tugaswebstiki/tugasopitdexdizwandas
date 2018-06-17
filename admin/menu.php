@@ -3,7 +3,7 @@
 	
 
 	<div><h2>DAFTAR MENU</h2><hr>
-		<a type="button" class="btn btn-success"  data-toggle="modal" data-target="#tambahmenu">Tambah</a>
+		<a type="button" class="btn btn-success"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#tambahmenu">Tambah</a>
 	</div>
 	<br>
 <div style="height:360px;overflow-y: scroll; ">
@@ -94,16 +94,18 @@
 ===============================================TAMBAH MENU======================================================
 -->
 
-<div class="modal fade" id="tambahmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="tambahmenu" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-lg" role="document"> 
 		<div class="modal-content">
-		
+			<div class="modal-body">
+
+
+
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>TAMBAH MENU</h2>
 				</div>
-				
-			<div class="modal-body">
+
 				<form method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label>Nama</label>

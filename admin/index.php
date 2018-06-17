@@ -5,6 +5,8 @@
 <head>
       <meta charset="utf-8" />
     <title>Restorant</title>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <link href="../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
@@ -145,9 +147,15 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
+    <script src="../assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
     <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="../assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+    <script src="../assets/js/morris/raphael-2.1.0.min.js"></script>
+
+      <!-- CUSTOM SCRIPTS -->
     <script src="../assets/js/custom.js"></script>
    
 </body>
