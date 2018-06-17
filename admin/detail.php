@@ -1,29 +1,54 @@
 <?php 
+    $koneksi= new mysqli('localhost','root','','restorant');
+ ?>
+<?php 
  if($_POST['rowid']) {
+ 	?>
+ 	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Nama</th>
+				<th>Jumlah</th>
+				<th>Harga</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		
+
+
+<?php
         $id = $_POST['rowid'];
-        // mengambil data berdasarkan id
-        $sql = "SELECT * FROM barang WHERE id = $id";
-        $result = $koneksi->query($sql);
-        foreach ($result as $baris) { ?>
-            <table class="table">
-                <tr>
-                    <td>Kode Barang</td>
-                    <td>:</td>
-                    <td><?php echo $baris['kode_barang']; ?></td>
-                </tr>
-                <tr>
-                    <td>Nama Barang</td>
-                    <td>:</td>
-                    <td><?php echo $baris['nama_barang']; ?></td>
-                </tr>
-                <tr>
-                    <td>Deskripsi Barang</td>
-                    <td>:</td>
-                    <td><?php echo $baris['desc_barang']; ?></td>
-                </tr>
-            </table>
+        $no=1;
+        $ambil = $koneksi->query("	SELECT * 
+									FROM menu
+									INNER JOIN pesan
+									ON pesan.id_menu=menu.id_menu
+									WHERE id_pesanan=$id "
+									);
+
+       			while($pecah = $ambil->fetch_assoc()){ 		?>
+
+			
+				<tr>
+					<td><?php echo $no; ?></td>
+					<td><?php echo $pecah['nama_menu']; ?></td>
+					<td><?php echo $pecah['jumlah_pesan']; ?></td>
+					<td><?php echo $pecah['harga_pesan']; ?></td>
+					
+				</tr>
+
+				<?php
+				$no++;
+			}
+			?>
+
+	</tbody>
+</table>
+
+
         <?php 
  
-        }
     } 
     ?>

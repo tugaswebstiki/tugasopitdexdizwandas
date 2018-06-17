@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
 <div>
 
 	<div><h2>DAFTAR TRANSAKSI</h2><hr> 
@@ -43,10 +51,11 @@
 			<td><?php echo $pecah['waktu_pemesanan']; ?></td>
 			<td><?php echo $pecah['total_harga']; ?></td>
 			<td> 
-				<a href=""
+				<a type="button" 
+				id="custId"
+				href="#detailtransaksi"
 				data-toggle="modal"
-				data-target="#detailtransaksi"
-				data-id="<?php echo $pecah['id_transaksi']; ?>"
+				data-id="<?php echo $pecah['id_pesanan']; ?>"
 				 class="btn btn-info">Detail</a>
 			</td>
 		</tr>
@@ -55,13 +64,28 @@
 			$no++;
 			}
 		?>
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    
+       $(document).on('click','#custId',function(e){
+            var rowid = $(this).data('id');
+            $.ajax({
+                type : 'post',
+                url : 'detail.php',
+                data :  'rowid='+ rowid,
+                success : function(data){
+                $('.fetched-data').html(data);
+                }
+            });
+         });
+    
+  </script>
 	</tbody>
 </table></div>
 
 
 
-<div class="modal fade" id="detailtransaksi" role="dialog">
+<div class="modal fade" id="detailtransaksi" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,26 +96,13 @@
                     <div class="fetched-data"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
     </div>
 
  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        $('#myModal').on('show.bs.modal', function (e) {
-            var rowid = $(e.relatedTarget).data('id');
-            $.ajax({
-                type : 'post',
-                url : 'detail.php',
-                data :  'rowid='+ rowid,
-                success : function(data){
-                $('.fetched-data').html(data);
-                }
-            });
-         });
-    });
-  </script>
+  
 </div>
+</body>
+</html>
