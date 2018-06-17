@@ -12,8 +12,9 @@
     <link href="../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link href="../assets/css/ganti.css" rel="stylesheet" />
     
+    <link href="../assets/css/ganti.css" rel="stylesheet" />
+
     <script>
         function bacaGambar(input) {
 
@@ -94,8 +95,8 @@
         </nav>  
     
 
-        <div id="page-wrapper" >
-            <div  id="page-inner" style="height: 500px">
+        <div id="page-wrapper" style="max-height: 500px !important;" >
+            <div  id="page-inner" style="max-height: 500px !important;">
                 <?php 
                     if (isset($_GET['halaman'])) 
                     {

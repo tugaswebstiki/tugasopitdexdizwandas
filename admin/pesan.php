@@ -1,10 +1,10 @@
-<div class="container">
+<div class="col-md-12">
 <div class="container judul"><h2>PESAN</h2></div>
 
 
 <form >
 
-<div class="container">		
+<div class="col-md-12">		
 
 		<div class="col-md-2 ubah">
 			<div class="form-group">
@@ -78,6 +78,7 @@
 
 <a type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Cari Menu</a>
 <div class="col-md-12">
+	<div class="table table-bordered" style="height:360px;overflow-y: scroll; background-color: #F3F3F3">
 	<table class="table table-bordered table-hover ">
 	<thead>
 		<tr>
@@ -96,6 +97,7 @@
 
 	</tbody>
 </table>
+</div>
 </div>
 
 
