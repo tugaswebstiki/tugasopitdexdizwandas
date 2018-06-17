@@ -323,7 +323,7 @@ line-height: 1.428571429;
      #page-wrapper{
                margin: 0 0 0 260px;
         padding: 15px 30px;
-        min-height: 500px;
+        height: 500px !important;
     }
     
     
@@ -356,3 +356,5 @@ line-height: 1.428571429;
     height: 20px;
     width: 160px;
 }
+
+
