@@ -31,31 +31,14 @@
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
-				<label for="alamat">No Meja</label>
+
+
 				<?php   
-					$ambil = $koneksi->query("SELECT * FROM meja ORDER BY nama_meja ASC");
+					$id_meja=$_GET['id'];
 				?>
 		 
-
-				<select class="form-control" name="kategori">
-
-					<option>Pilih Meja</option>
-
-					<?php $kat=1;
-
-					while($pecah = $ambil->fetch_assoc()){ 	
-						if ($pecah['id_status']==2) {
-							
-
-
-						?>
-
-					<option value="<?php echo$kat; ?>">   <?php echo('Meja no.'); echo$pecah['nama_meja']; ?>   </option>
-
-					<?php }$kat++; } ?>
-
-		
-                </select>
+				<label>No Meja:</label>
+				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $id_meja;?></div>
 			</div>	
 		</div>
 
