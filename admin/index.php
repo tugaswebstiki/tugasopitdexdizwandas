@@ -131,8 +131,8 @@
                         elseif ($_GET['halaman']=='ubahadmin') {
                             include'ubahadmin.php';
                         }
-                        elseif ($_GET['halaman']=='hapus') {
-                            include'hapus.php';
+                        elseif ($_GET['halaman']=='detail') {
+                            include'detail.php';
                         }
 
                     }
