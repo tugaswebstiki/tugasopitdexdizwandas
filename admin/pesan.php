@@ -25,8 +25,8 @@
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
-				<label for="alamat">Id Admin:</label>
-				<div class="form-control" id="idadm"></div>
+				<label for="alamat">nama Admin:</label>
+				<div class="form-control" ><?php echo $_SESSION['sess_nama'];?></div>
 			</div>	
 		</div>
 		<div class="col-md-2">
