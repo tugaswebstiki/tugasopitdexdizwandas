@@ -9,9 +9,9 @@ $koneksi= new mysqli('localhost','root','','restorant');
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login W.O.Y Resto</title>
-  <link href="assets/css/bootstrap.css" rel="stylesheet" />
-  <link href="assets/css/font-awesome.css" rel="stylesheet" />
-  <link href="assets/css/custom.css" rel="stylesheet" />
+  <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+  <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+  <link href="../assets/css/custom.css" rel="stylesheet" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 </head>
@@ -51,10 +51,18 @@ $koneksi= new mysqli('localhost','root','','restorant');
 
           <?php 
               if (isset($_POST['login'])) {
+
+
+
                   $ambil=$koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]' AND password='$_POST[pass]'");
                   $yangcocok = $ambil->num_rows;
                   if($yangcocok==1){
-                        $_SESSION['admin']=$ambil->fetch_assoc();
+                    
+                                   $dataProfile = $ambil->fetch_assoc();
+                                   $_SESSION['sess_nama']  = $dataProfile['nama_admin'];
+                                   $_SESSION['sess_foto']  = $dataProfile['foto_admin'];
+                             
+                           
                         echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
                         echo "<meta http-equiv='refresh' content='1;url=index.php'>";
                   }
@@ -78,10 +86,10 @@ $koneksi= new mysqli('localhost','root','','restorant');
 
 
 
-<script src="assets/js/jquery-1.10.2.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.metisMenu.js"></script>
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/jquery-1.10.2.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.metisMenu.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 
 

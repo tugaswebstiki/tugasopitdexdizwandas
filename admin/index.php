@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php 
+    session_start();
+
     $koneksi= new mysqli('localhost','root','','restorant');
  ?>
 <head>
@@ -78,12 +80,18 @@
           
 
 
+
+
+
+
+
                 <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-		<li class="text-center">
-                    <img src="../assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
+		<li class="text-center namaadmin">
+                    <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />
+                    <label><?php echo $_SESSION['sess_nama']; ?></label>
+		</li>
     <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
     <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
     <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
