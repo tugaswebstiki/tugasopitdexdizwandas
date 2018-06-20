@@ -356,5 +356,14 @@ line-height: 1.428571429;
     height: 20px;
     width: 160px;
 }
-
+.paneljam
+{   color: white;
+    padding: 15px 20px 5px 20px;
+    float: right;
+    font-size: 16px;
+}
+.putih{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
 

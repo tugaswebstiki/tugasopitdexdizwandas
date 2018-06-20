@@ -97,17 +97,17 @@
                 <a class="navbar-brand" href="index.html">W.O.Y Resto</a> 
             </div>
             
-            <div style="color: white;padding: 15px 50px 5px 20px;float: right;font-size: 16px;">
+            <div class=" paneljam">
            
-             &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-             <div style="color: white;padding: 15px 50px 5px 10px;float: right;font-size: 16px;">
+             &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+             <div class=" paneljam">
              
              <?php
             echo date("  d-m-Y") . "<br>";
             ?>
             
             </div>
-            <div style="color: white;padding: 15px 10px 5px 50px;float: right;font-size: 16px;" id="jamdigital"></div>
+            <div class=" paneljam" id="jamdigital"></div>
         </nav>   
           
 
@@ -120,16 +120,10 @@
                 <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-<<<<<<< HEAD
-		<li class="text-center">
-                    <img src="../assets/img/profil/opit.jpg" class="user-image img-responsive"/>
-					</li>
-=======
-		<li class="text-center namaadmin">
-                    <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />
-                    <label><?php echo $_SESSION['sess_nama']; ?></label>
-		</li>
->>>>>>> d5cfa00cee8f7c822d6fe43163b80912c95458a3
+            		<li class="text-center namaadmin">
+                                <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />
+                                
+            		</li>
     <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
     <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
     <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>

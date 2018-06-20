@@ -3,7 +3,7 @@
 	
 
 	<div><h2>DAFTAR MENU</h2><hr>
-		<a type="button" class="btn btn-success"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#tambahmenu">Tambah</a>
+		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahmenu">Tambah</a>
 	</div>
 	<br>
 <div style="height:360px;overflow-y: scroll; ">
@@ -43,14 +43,13 @@
 					<td><?php echo $pecah['status']; ?></td>
 					<td>
 						<a id="ubah" type="button" class="btn btn-warning" data-toggle="modal" data-target="#ubahmenu" 
-						 data-backdrop="static" data-keyboard="false"
 						data-id="<?php echo $pecah['id_menu'];?>" 
 						data-foto="<?php echo $pecah['fotomenu'] ?>" 
 						data-nama="<?php echo $pecah['nama_menu']; ?>" 
 						data-kategori="<?php echo $pecah['id_kategori']; ?> " 
 						data-harga="<?php echo $pecah['harga_menu']; ?>" 
 						data-status="<?php echo $pecah['id_status']; ?>">Ubah</a>
-						<a id="hapus" type="button" class="btn btn-danger" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#hapusmenu" data-id="<?php echo $pecah['id_menu'];?>">Hapus</a>
+						<a id="hapus" type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapusmenu" data-id="<?php echo $pecah['id_menu'];?>">Hapus</a>
 					</td>
 				</tr>
 
@@ -102,7 +101,6 @@
 
 
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>TAMBAH MENU</h2>
 				</div>
 
@@ -124,7 +122,7 @@
 								<?php $kat=1;
 								while($pecah = $ambil->fetch_assoc()){ 		?>
 
-									<option value="<?php echo$kat; ?>"><?php echo $pecah['nama_kategori']; ?></option>
+									<option value="<?php echo $kat; ?>"><?php echo $pecah['nama_kategori']; ?></option>
 
 									<?php $kat++; } ?>
 
@@ -215,7 +213,6 @@
 
 
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>UBAH MENU</h2>
 				</div>
 

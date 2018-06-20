@@ -36,4 +36,15 @@
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-
+.paneljam
+{   color: white;
+    padding: 15px 20px 5px 20px;
+    float: right;
+    font-size: 16px;
+}
+.paddingbutton{
+  padding-bottom: 1%;
+}
+.lebar100{
+  width: 100%;
+}

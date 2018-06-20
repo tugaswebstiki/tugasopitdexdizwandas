@@ -1,31 +1,27 @@
 <div class="col-md-12">
-<div class="container judul"><h2>PESAN</h2></div>
+<div class="container judul col-md-12"><h2>PESAN</h2></div>
 
 
 <form >
 
-<div class="col-md-12">		
+<div >		
 
-		<div class="col-md-2 ubah">
+		<div class="col-md-4">
 			<div class="form-group">
 				<label for="nama">Nama Pemesan:</label>
-				<input type="text" class="form-control" id="nama">
+				<div>
+					<a type="button" class="btn btn-default lebar100" data-toggle="modal" data-target="#carimember" >
+						<?php 
+							echo "REGULER";
+						 ?>
+					</a>
+				</div>
 			</div>
 		</div>
-		<div class="col-md-2 ubah3">
+		<div class="col-md-4">
 			<div class="form-group">
-				<a type="button" class="btn btn-primary form-control " data-toggle="modal" data-target="#carimember">Cari</a>
-			</div>	
-		</div>
-		<div class="col-md-2">
-			<div class="form-group">
-<<<<<<< HEAD
-				<label for="alamat">Id Admin:</label>
-				<div class="form-control" id="idadm">ID_1</div>
-=======
-				<label for="alamat">nama Admin:</label>
+				<label for="alamat">Admin:</label>
 				<div class="form-control" ><?php echo $_SESSION['sess_nama'];?></div>
->>>>>>> d5cfa00cee8f7c822d6fe43163b80912c95458a3
 			</div>	
 		</div>
 		<div class="col-md-2">
@@ -40,7 +36,12 @@
 				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $id_meja;?></div>
 			</div>	
 		</div>
-
+		<div class="col-md-2">
+			<div class="form-group">
+				<label>&nbsp</label>
+				<a type="" class="btn btn-primary form-control ">Simpan</a>
+			</div>	
+		</div>
 		
 </div>
 
@@ -56,21 +57,28 @@
 
 
 
+<div>
+	<div class="col-md-8 paddingbutton">
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Tambah</button>
+	</div>
+	<div class="col-md-2 paddingbutton">
+	<button type="button" class="btn lebar100" data-toggle="modal" data-target="#">Cetak Nota</button>
+	</div>
+	<div class="col-md-2 paddingbutton">
+	<button type="button" class="btn btn-warning form-control" data-toggle="modal" data-target="#">Selesai</button>
+	</div>
+</div>
 
-<div class="col-md-4">
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Cari Menu</button>
-<button type="submit" class="btn btn-primary">Simpan</button></div>
 <div class="col-md-12">
 	<div class="table table-bordered" style="height:360px;overflow-y: scroll; background-color: #F3F3F3">
 	<table class="table table-bordered table-hover ">
 	<thead>
 		<tr>
 			<th>No</th>
-			<th>Foto</th>
-			<th>Nama Menu</th>
-			<th>Harga Jual</th>
-			<th>Jumlah Beli</th>
-			<th>Kalkulasi</th>
+			<th>Nama</th>
+			<th>Harga</th>
+			<th>Qty</th>
+			<th>Jumlah</th>
 			<th class="lebar18">Aksi</th>
 		</tr>
 	</thead>
@@ -129,6 +137,7 @@
 								<th>Nama</th>
 								<th>Alamat</th>
 								<th>No Telepon</th>
+								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -148,6 +157,7 @@
 								<td><?php echo $pecah['nama_pelanggan']; ?></td>
 								<td><?php echo $pecah['alamat_pelanggan']; ?></td>
 								<td><?php echo $pecah['no_telp_pelanggan']; ?></td>
+								<td><a id="pilih" type="button" class="btn btn-success" data-id="<?php echo $pecah['id_pelanggan'];?>">Pilih</a></td>
 							</tr>
 
 							<?php
@@ -159,11 +169,6 @@
 					</table>
 					</div>
 					
-				</div>
-				<!-- footer modal -->
-				<div class="modal-footer">
-					
-					<button type="button" class="btn btn-success" data-dismiss="modal" name="okmenu">OK</button>
 				</div>
 			</div>
 		</div>

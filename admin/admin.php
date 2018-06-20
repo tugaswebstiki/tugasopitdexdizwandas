@@ -1,7 +1,7 @@
 <div>
 	<div>
 	<div><h2>ADMIN</h2><hr> 
-		<a type="button" class="btn btn-success"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
+		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
 	</div>
 	<br>
 
@@ -27,7 +27,7 @@
 						data-nama=	"Nama&nbsp : <?php echo $pecah['nama_admin']; ?>"
 						data-alamat="Asal&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <?php echo $pecah['alamat']; ?>"
 						data-notel=	"No.telp&nbsp: <?php echo $pecah['no_telp_admin']; ?>"
-						style="width: 90%;" class="btn btn-default" data-backdrop="static" data-keyboard="false">
+						style="width: 90%;" class="btn btn-default">
 						<?php  echo $pecah['nama_admin']; ?></a></td>
 				</tr>
 				
@@ -64,7 +64,6 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>DETAIL</h2>
 				</div>
 				<table><br>
@@ -98,7 +97,6 @@
 
 
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>TAMBAH ADMIN</h2>
 				</div>
 

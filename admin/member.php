@@ -1,7 +1,7 @@
 <div>
 
 	<div><h2>DAFTAR PELANGGAN</h2><hr> 
-		<a type="button" class="btn btn-success"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#tambahpelanggan">Tambah</a> 
+		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahpelanggan">Tambah</a> 
 	</div>
 	<br>
 <div style="height:360px;overflow-y: scroll; ">
@@ -42,12 +42,11 @@
 
 
 				<a id="ubah" type="button" class="btn btn-warning" data-toggle="modal" data-target="#ubahpelanggan" 
-						 data-backdrop="static" data-keyboard="false"
 						data-id="<?php echo $pecah['id_pelanggan'];?>" 
 						data-nama="<?php echo $pecah['nama_pelanggan']; ?>"  
 						data-alamat="<?php echo $pecah['alamat_pelanggan']; ?>" 
 						data-notel="<?php echo $pecah['no_telp_pelanggan']; ?>">Ubah</a>
-						<a id="hapus" type="button" class="btn btn-danger" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#hapuspelanggan" data-id="<?php echo $pecah['id_pelanggan'];?>">Hapus</a>
+						<a id="hapus" type="button" class="btn btn-danger" data-toggle="modal"  data-target="#hapuspelanggan" data-id="<?php echo $pecah['id_pelanggan'];?>">Hapus</a>
 					<?php
 				}
 					?>
@@ -100,7 +99,6 @@
 
 
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2>TAMBAH PELANGGAN</h2>
 				</div>
 
