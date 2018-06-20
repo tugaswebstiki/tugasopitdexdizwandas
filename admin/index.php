@@ -4,6 +4,7 @@
  ?>
 <head>
       <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Restorant</title>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
@@ -14,8 +15,27 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     
     <link href="../assets/css/ganti.css" rel="stylesheet" />
+ 
+    <script type="text/javascript">
+        window.setTimeout(" waktu() ",100);
+        function waktu()
+        {
+            var tanggal = new Date();
+            var jam = tanggal.getHours();
+            var menit = tanggal.getMinutes();
+            var detik = tanggal.getSeconds();
+            var teskjam = new String();
+            if(jam <= 9)
+                jam = "0"+jam;
+            if(menit <= 9)
+                menit = "0"+menit;
+            if(detik <= 9)
+                detik = "0"+detik;
+            teskjam = jam + ":" + menit + ":" + detik;
+            document.getElementById("jamdigital").innerHTML = teskjam;
+            setTimeout("waktu()",1000);
+        }
 
-    <script>
         function bacaGambar(input) {
 
         if (input.files && input.files[0]) {
@@ -56,6 +76,7 @@
         $("#preview_gambar_admin").change(function(){
                                                 bacaGambaradmin(this);
                                                                     });
+        
     </script>
 
 
@@ -73,7 +94,18 @@
                 </button>
                 <a class="navbar-brand" href="index.html">W.O.Y Resto</a> 
             </div>
-            <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+            
+            <div style="color: white;padding: 15px 50px 5px 20px;float: right;font-size: 16px;">
+           
+             &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+             <div style="color: white;padding: 15px 50px 5px 10px;float: right;font-size: 16px;">
+             
+             <?php
+            echo date("  d-m-Y") . "<br>";
+            ?>
+            
+            </div>
+            <div style="color: white;padding: 15px 10px 5px 50px;float: right;font-size: 16px;" id="jamdigital"></div>
         </nav>   
           
 
@@ -82,7 +114,7 @@
         <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 		<li class="text-center">
-                    <img src="../assets/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="../assets/img/profil/opit.jpg" class="user-image img-responsive"/>
 					</li>
     <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
     <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>

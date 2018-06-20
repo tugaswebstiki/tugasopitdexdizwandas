@@ -346,7 +346,7 @@
 					<div class="col-md-2"></div>
 					<button type="button" class="btn btn-danger col-md-3 delete_aja_gpp" name="ya" >YA</button>
 					<div class="col-md-2"></div>
-					<button type="button" class="btn btn-success col-md-3 hapusmenu_close" name="tidak">TIDAK</button>
+					<button type="button" data-dismiss="modal" class="btn btn-success col-md-3 hapusmenu_close" name="tidak">TIDAK</button>
 					<div class="col-md-2"></div>
 					<hr><br>
 				<?php 

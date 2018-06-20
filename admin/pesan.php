@@ -12,12 +12,6 @@
 				<input type="text" class="form-control" id="nama">
 			</div>
 		</div>
-		<div class="col-md-2 ubah2">
-			<div class="form-group">
-				<label for="alamat">Alamat Pemesan:</label>
-				<input type="text" class="form-control" id="alamat">
-			</div>	
-		</div>
 		<div class="col-md-2 ubah3">
 			<div class="form-group">
 				<a type="button" class="btn btn-primary form-control " data-toggle="modal" data-target="#carimember">Cari</a>
@@ -26,7 +20,7 @@
 		<div class="col-md-2">
 			<div class="form-group">
 				<label for="alamat">Id Admin:</label>
-				<div class="form-control" id="idadm"></div>
+				<div class="form-control" id="idadm">ID_1</div>
 			</div>	
 		</div>
 		<div class="col-md-2">
@@ -58,8 +52,9 @@
 
 
 
-
-<a type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Cari Menu</a>
+<div class="col-md-4">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Cari Menu</button>
+<button type="submit" class="btn btn-primary">Simpan</button></div>
 <div class="col-md-12">
 	<div class="table table-bordered" style="height:360px;overflow-y: scroll; background-color: #F3F3F3">
 	<table class="table table-bordered table-hover ">
@@ -82,9 +77,10 @@
 </table>
 </div>
 </div>
+</div>
 
 
-<button type="submit" class="btn btn-primary">Simpan</button>
+
 
 
 

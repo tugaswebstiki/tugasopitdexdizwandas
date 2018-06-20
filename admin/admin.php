@@ -1,6 +1,6 @@
 <div>
 	<div>
-	<div><h2>DAFTAR ADMIN</h2><hr> 
+	<div><h2>ADMIN</h2><hr> 
 		<a type="button" class="btn btn-success"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
 	</div>
 	<br>
@@ -165,6 +165,21 @@
 
 						if ("$_POST[pass1]"=="$_POST[pass2]") {
 
+							if ($_FILES['foto_admin']['size'] == 0){
+
+								$koneksi->query("	INSERT INTO admin
+											(nama_admin,username,password,alamat,no_telp_admin,foto_admin) 
+											VALUES('$_POST[nama]','$_POST[username]','$_POST[pass1]','$_POST[alamat]','$_POST[notel]','user.png');
+										");
+						
+						echo "<div class='alert-info alert'> Data Tersimpan </div>";
+						echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";	
+							}
+							
+
+							else{
+
+
 							$nama_foto = $_FILES['foto_admin']['name'];
 							$tempat_foto = $_FILES['foto_admin']['tmp_name'];
 							move_uploaded_file($tempat_foto,"../assets/img/profil/".$nama_foto);
@@ -177,7 +192,8 @@
 						
 						echo "<div class='alert-info alert'> Data Tersimpan </div>";
 						echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";		
-						}
+								}
+							}
 						else{
 						echo "<div class='alert-danger alert'> Password Salah </div>";
 						}
