@@ -48,3 +48,17 @@
 .lebar100{
   width: 100%;
 }
+.fotomeja{
+  background: url('../img/meja/meja.png') no-repeat center center;
+}
+.nomeja{
+  font-size: 600%;
+  text-align: center;
+  color: #f00;
+}
+.noeffect{
+  text-decoration: none !important;
+}
+.mejapenuh{
+  filter: saturate(0.0);
+}

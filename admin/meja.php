@@ -18,38 +18,43 @@
 					<?php 
 
 					while($pecah = $ambil->fetch_assoc()){ 	
-
+					if ($pecah['id_status']==1) {
 					?>
 
 				
 							<div class="col-md-2">
-								<span><?php echo "&nbsp&nbsp&nbsp&nbspMeja No."; echo $pecah['nama_meja']; ?></span>
-								<div class="thumbnail" style="border: 0px !important;">
-
-										<?php
-											if ($pecah['id_status']==1) {
-										?>
-															
-															<a href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>" class="tombol_meja">
-																<img src="../assets/img/meja/penuh.jpg">
-															</a>
-															
-														
+								<a class="noeffect" href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>">
+								<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
+									<div class="nomeja">
+									<?php 
+										echo " $pecah[nama_meja] ";
+									 ?>
+									</div>
+								</div>
+								</a>
+							</div>					
 
 										<?php }
 											else{
 										?>
-											
-															<a href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>" class="tombol_meja">
-																<img src="../assets/img/meja/kosong.jpg">
-															</a>
+
+
+							<div class="col-md-2">
+								<a class="noeffect" href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>">
+								<div class="thumbnail fotomeja" style="border: 0px !important;">	
+									<div class="nomeja">
+									<?php 
+										echo " $pecah[nama_meja] ";
+									 ?>
+									</div>
+								</div>
+							</a>
+							</div>	
 															
 										<?php
 											}
 										?>
-									</div>
-								</div>
-							
+								
 					<?php } ?>
 
 
