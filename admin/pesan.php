@@ -19,8 +19,13 @@
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
+<<<<<<< HEAD
 				<label for="alamat">Id Admin:</label>
 				<div class="form-control" id="idadm">ID_1</div>
+=======
+				<label for="alamat">nama Admin:</label>
+				<div class="form-control" ><?php echo $_SESSION['sess_nama'];?></div>
+>>>>>>> d5cfa00cee8f7c822d6fe43163b80912c95458a3
 			</div>	
 		</div>
 		<div class="col-md-2">

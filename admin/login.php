@@ -51,10 +51,18 @@ $koneksi= new mysqli('localhost','root','','restorant');
 
           <?php 
               if (isset($_POST['login'])) {
+
+
+
                   $ambil=$koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]' AND password='$_POST[pass]'");
                   $yangcocok = $ambil->num_rows;
                   if($yangcocok==1){
-                        $_SESSION['admin']=$ambil->fetch_assoc();
+                    
+                                   $dataProfile = $ambil->fetch_assoc();
+                                   $_SESSION['sess_nama']  = $dataProfile['nama_admin'];
+                                   $_SESSION['sess_foto']  = $dataProfile['foto_admin'];
+                             
+                           
                         echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
                         echo "<meta http-equiv='refresh' content='1;url=index.php'>";
                   }
