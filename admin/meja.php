@@ -11,7 +11,8 @@
 
 	
 
-
+<div style="height:400px;overflow-y: scroll; ">
+	<div class="col-md-12">
 
 <?php   
 					$ambil = $koneksi->query("SELECT * FROM meja ORDER BY nama_meja ASC");
@@ -60,7 +61,8 @@
 										?>
 								
 					<?php } ?>
-
+	</div>
+</div>
 	<!--   
 ===============================================TAMBAH MEJA======================================================
 -->
@@ -102,7 +104,7 @@
 			if ($name_check>0) {
 							?><script type="text/javascript">
 								swal("Sudah ada", 
-								{
+								{	icon : "warning",
 									className : "sweetalertmn",
 									button: false,
 									timer: 1000
@@ -116,9 +118,14 @@
 								(nama_meja,jumlah_kursi,id_status) 
 								VALUES('$_POST[nama]','$_POST[jk]',2);
 							");
-			
-			echo "<div class='alert-info alert'> Data Tersimpan </div>";
-			echo "<meta http-equiv='refresh' content='1;url=index.php'>";	
+							?><script type="text/javascript">
+								swal({
+										className : "sweetalertmn",
+  										icon: "success",
+  										button: false,
+  										timer: 1000
+									});
+							</script><?php	
 
 				}
 			}
@@ -192,7 +199,7 @@
 							
 							<script type="text/javascript">
 								swal("Meja Sedang ada Pelanggan", 
-								{
+								{ icon :"warning",
 								  button: false,
 								});
 							</script>

@@ -134,7 +134,14 @@
 								VALUES('$_POST[nama]','$_POST[alamat]','$_POST[notel]');
 							");
 			
-			echo "<div class='alert-info alert'> Data Tersimpan </div>";
+										?><script type="text/javascript">
+											swal({
+													className : "sweetalertmn",
+			  										icon: "success",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
 			echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=member'>";		
 			}
 			
@@ -197,7 +204,14 @@
 								SET nama_pelanggan='$_POST[nama]',alamat_pelanggan='$_POST[alamat]',no_telp_pelanggan='$_POST[notel]'
 								WHERE id_pelanggan='$id'
 							");
-			
+										?><script type="text/javascript">
+											swal({
+													className : "sweetalertmn",
+			  										icon: "success",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
 			echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=member'>";		
 			}
 			

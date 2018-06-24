@@ -163,6 +163,7 @@
 										(nama_menu,id_kategori,fotomenu,harga_menu,id_status) 
 										VALUES('$_POST[nama]','$_POST[kategori]','default.png','$_POST[harga]',1)
 										");
+									
 								}
 								else{
 									$nama_foto = $_FILES['foto_produk']['name'];
@@ -174,17 +175,18 @@
 										(nama_menu,id_kategori,fotomenu,harga_menu,id_status) 
 										VALUES('$_POST[nama]','$_POST[kategori]','$nama_foto','$_POST[harga]',1)
 										");
-									
+										
 								}
-
-
-									?>
-
-									
-									<?php
-									
+										?><script type="text/javascript">
+											swal({
+													className : "sweetalertmn",
+			  										icon: "success",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
 									echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=menu'>";
-								}
+							}
 
 								?>
 
@@ -310,6 +312,14 @@
 														WHERE id_menu='$id'
 										");
 									}
+										?><script type="text/javascript">
+											swal({
+													className : "sweetalertmn",
+			  										icon: "success",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
 								echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=menu'>";		
 							}
 

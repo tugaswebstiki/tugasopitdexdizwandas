@@ -152,9 +152,18 @@
 
 		if (isset($_POST['save'])) {	
 
-			if ("$_POST[nama]"==""&&"$_POST[username]"==""&&"$_POST[pass1]"==""&&"$_POST[pass2]"==""&&"$_POST[alamat]"==""&&"$_POST[notel]"=="") {
+			if ("$_POST[nama]"==""||"$_POST[username]"==""||"$_POST[pass1]"==""||"$_POST[pass2]"==""||"$_POST[alamat]"==""||"$_POST[notel]"=="") {
 			
-			echo "<div class='alert-danger alert'> Semua Data Harus Isi ! </div>";	
+										?><script type="text/javascript">
+											swal("Data harus lengkap",
+												{
+													className : "sweetalertmn",
+			  										icon: "error",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
+										echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";
 			
 			}
 			else{
@@ -169,8 +178,6 @@
 											(nama_admin,username,password,alamat,no_telp_admin,foto_admin) 
 											VALUES('$_POST[nama]','$_POST[username]','$_POST[pass1]','$_POST[alamat]','$_POST[notel]','user.png');
 										");
-						
-						echo "<div class='alert-info alert'> Data Tersimpan </div>";
 						echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";	
 							}
 							
@@ -187,13 +194,30 @@
 											(nama_admin,username,password,alamat,no_telp_admin,foto_admin) 
 											VALUES('$_POST[nama]','$_POST[username]','$_POST[pass1]','$_POST[alamat]','$_POST[notel]','$nama_foto');
 										");
-						
-						echo "<div class='alert-info alert'> Data Tersimpan </div>";
 						echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";		
 								}
+
+										?><script type="text/javascript">
+											swal({
+													className : "sweetalertmn",
+			  										icon: "success",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php	
+
 							}
 						else{
-						echo "<div class='alert-danger alert'> Password Salah </div>";
+										?><script type="text/javascript">
+											swal("Password Salah",
+												{
+													className : "sweetalertmn",
+			  										icon: "error",
+			  										button: false,
+			  										timer: 1000
+												});
+										</script><?php
+										echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=admin'>";
 						}
 
 				}
