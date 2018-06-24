@@ -266,6 +266,7 @@ font-weight: 700;
 .navbar-side {
     border:none;
     background-color: #202020;
+    height: 100%;
     
 }
 .navbar-cls-top {

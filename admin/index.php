@@ -8,6 +8,8 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Restorant</title>
+    <script src="../assets/js/jquery_sweet_alert.min_2.js"></script>
+    <script src="../assets/js/sweetalert.min.js"></script>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
@@ -15,8 +17,8 @@
     <link href="../assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    
     <link href="../assets/css/ganti.css" rel="stylesheet" />
+    <link href="../assets/css/sweetalert.min.css" rel="stylesheet" />
  
     <script type="text/javascript">
         window.setTimeout(" waktu() ",100);

@@ -14,7 +14,7 @@
 
 
 <?php   
-					$ambil = $koneksi->query("SELECT * FROM meja");
+					$ambil = $koneksi->query("SELECT * FROM meja ORDER BY nama_meja ASC");
 				?>
 		 
 
@@ -95,7 +95,22 @@
 
 		if (isset($_POST['save'])) {
 
+			$name_check = 	mysqli_num_rows(
+							mysqli_query($koneksi,
+							"SELECT * FROM meja WHERE nama_meja ='$_POST[nama]' "));
 
+			if ($name_check>0) {
+							?><script type="text/javascript">
+								swal("Sudah ada", 
+								{
+									className : "sweetalertmn",
+									button: false,
+									timer: 1000
+								});
+							</script><?php
+							echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+				}
+			else{
 
 			$koneksi->query("	INSERT INTO meja
 								(nama_meja,jumlah_kursi,id_status) 
@@ -103,7 +118,9 @@
 							");
 			
 			echo "<div class='alert-info alert'> Data Tersimpan </div>";
-			echo "<meta http-equiv='refresh' content='1;url=index.php'>";		
+			echo "<meta http-equiv='refresh' content='1;url=index.php'>";	
+
+				}
 			}
 			
 		 ?>
@@ -137,7 +154,7 @@
 	<div class="form-group">
 						<label>Meja yang ingin dihapus</label>
 						<?php   $ambil = $koneksi->query(	"SELECT * 
-							FROM meja");
+							FROM meja ORDER BY nama_meja ASC");
 							?>
 							<select class="form-control" name="kategori">
 
@@ -166,17 +183,31 @@
 
 		if (isset($_POST['delete'])) {
 
-			$cari = $koneksi->query("SELECT id_status FROM meja WHERE id_meja='$_POST[kategori]'");
+			$cari = $koneksi->query("SELECT * FROM meja WHERE id_meja='$_POST[kategori]'");
+			$bagi = $cari->fetch_assoc();
+			$hmmm = $bagi['id_status'];
 
+			if ($hmmm==1) {
+							?>
+							
+							<script type="text/javascript">
+								swal("Meja Sedang ada Pelanggan", 
+								{
+								  button: false,
+								});
+							</script>
 
-			if ($cari=2) {
-			$koneksi->query("DELETE FROM meja WHERE id_meja='$_POST[kategori]'");
-						
-						echo "<div class='alert-info alert'> Data Tersimpan </div>";
-						echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+							<?php
+							echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 			}
 			else{	
+							$koneksi->query("DELETE FROM meja WHERE id_meja='$_POST[kategori]'");
+									
+
+									echo "<div class='alert-info alert'> Data Tersimpan </div>";
+									echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 			}
+
 			}
 		 ?>
 
@@ -190,3 +221,4 @@
 ================================================HAPUS MEMBER======================================================
 -->
 </div>
+
