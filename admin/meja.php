@@ -29,9 +29,9 @@
 					?>
 
 						<form method="post">
-							<input type="hidden" id="id_meja" value="<?php echo $pecah['id_meja'];?>">
 							<div class="col-md-2">
-								<button class="noeffect button_noeffect" name="cek_meja">
+								<a href="index.php?halaman=pesan&nama_meja=<?php echo $pecah['id_meja'] ?>" 
+									data-id="<?php echo $pecah['id_meja'];?>" class="noeffect button_noeffect" id="cek_meja">
 									<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
 										<div class="nomeja">
 										<?php 
@@ -39,7 +39,7 @@
 										 ?>
 										</div>
 									</div>
-								</button>
+								</a>
 							</div>	
 						</form>				
 
@@ -48,8 +48,8 @@
 										?>
 
 						<form method="post">
+							<input type="hidden" name="id_meja" value="<?php echo $pecah['id_meja'];?>">
 							<input type="hidden" id="id_meja" value="<?php echo $pecah['id_meja'];?>">
-							<input type="hidden" id="meja_makan" value="<?php echo $pecah['nama_meja'];?>">
 							<input type="hidden" name="id_admin" value="<?php echo $_SESSION['sess_id'];?>">
 							<input type="hidden" name="id_pelanggan" value="1">
 							<input type="hidden" name="waktu_pesanan" value="<?php echo $waktu_pesan;?>">
@@ -88,17 +88,17 @@
 										</script>
 										<?php
 								}
+	
+								?>
+										
 
-
-	if (isset($_POST['cek_meja'])) {	
-										?>
-										<script type="text/javascript">
-											var id = $('#id_meja').val();
-											window.location.href="index.php?halaman=pesan&nama_meja="+id;
-										</script>
-										<?php	
-	}
-		 ?>
+				<script type="text/javascript">
+					$(document).on('click','#cek_meja',function(e){
+					e.preventDefault();
+					var id = $(this).data('id');
+					window.location.href="index.php?halaman=pesan&nama_meja="+id;
+				</script>
+										
 	<!--   
 ===============================================TAMBAH MEJA======================================================
 -->
@@ -162,7 +162,7 @@
   										timer: 1000
 									});
 							</script><?php	
-
+							echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 				}
 			}
 			

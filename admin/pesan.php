@@ -2,7 +2,6 @@
 <div class="container judul col-md-12"><h2>PESAN</h2></div>
 <?php 
 $meja_yang_dieksekusi = $_GET['nama_meja'];
-echo $meja_yang_dieksekusi;
 $ambil = $koneksi->query("SELECT * 
 						FROM admin 
 						INNER JOIN(pelanggan 
@@ -10,7 +9,7 @@ $ambil = $koneksi->query("SELECT *
 						ON pesanan.id_meja=meja.id_meja)
 						ON pesanan.id_pelanggan=pelanggan.id_pelanggan)
 						ON pesanan.id_admin=admin.id_admin
-						WHERE pesanan.id_meja = $meja_yang_dieksekusi 
+						WHERE pesanan.id_meja = $meja_yang_dieksekusi AND pesanan.id_status = 1
 						");
 $pecah = $ambil->fetch_assoc();
 ?>
@@ -140,17 +139,8 @@ $pecah = $ambil->fetch_assoc();
 			</div>
 		</div>
 	</div>
-	<input type="hidden" clas="pelanggan_yang di_eksekusi">
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#pilih').click(function(){
-			var url = "index.php?halaman=menu";
-			var id = $('.idyangingindihapus').val();
-			window.location.href= url+'&delete='+id;
-		});
-	});
+	<input type="hidden" clas="pelanggan_yang_di_eksekusi">
 
-</script>
 
 <!--   
 ===============================================CARI MEMBER======================================================
