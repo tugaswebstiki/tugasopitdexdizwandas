@@ -101,11 +101,11 @@
             
             <div class=" paneljam">
            
-             &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+             &nbsp; <a href="../index.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
              <div class=" paneljam">
              
              <?php
-            echo date("  d-m-Y") . "<br>";
+            echo date("  d M Y") . "<br>";
             ?>
             
             </div>
@@ -157,21 +157,6 @@
                         }
                         elseif ($_GET['halaman']=='admin') {
                             include'admin.php';
-                        }
-                        elseif ($_GET['halaman']=='tambahmenu') {
-                            include'tambahmenu.php';
-                        }
-                        elseif ($_GET['halaman']=='tambahmember') {
-                            include'tambahmember.php';
-                        }
-                        elseif ($_GET['halaman']=='tambahmeja') {
-                            include'tambahmeja.php';
-                        }
-                        elseif ($_GET['halaman']=='tambahadmin') {
-                            include'tambahadmin.php';
-                        }
-                        elseif ($_GET['halaman']=='ubahadmin') {
-                            include'ubahadmin.php';
                         }
                         elseif ($_GET['halaman']=='detail') {
                             include'detail.php';

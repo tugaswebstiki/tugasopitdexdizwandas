@@ -11,7 +11,7 @@
 	<div><h2>DAFTAR TRANSAKSI</h2><hr> 
 	</div>
 	<br>
-<div style="height:360px;overflow-y: scroll; ">
+<div style="height:400px;overflow-y: scroll; ">
 <table class="table table-bordered">
 	<thead>
 		<tr>

@@ -1,5 +1,7 @@
 <div>
-
+<?php   date_default_timezone_set('Asia/Kuala_Lumpur');
+	$waktu_pesan = date('Y-m-d H:i:s', time());
+?>
 	<div><h2>DAFTAR MEJA</h2><hr></div>
 	<div class="lebar80">
 		<a href="#tambahmeja" data-toggle="modal" class="btn btn-success">Tambah</a> 
@@ -26,43 +28,55 @@
 					if ($pecah['id_status']==1) {
 					?>
 
-				
+						<form>
 							<div class="col-md-2">
-								<a class="noeffect" href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>">
-								<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
-									<div class="nomeja">
-									<?php 
-										echo " $pecah[nama_meja] ";
-									 ?>
+								<a class="noeffect" id="cek_meja">
+									<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
+										<div class="nomeja">
+										<?php 
+											echo " $pecah[nama_meja] ";
+										 ?>
+										</div>
 									</div>
-								</div>
 								</a>
-							</div>					
+							</div>	
+						</form>				
 
 										<?php }
 											else{
 										?>
 
-
+						<form method="post">
+							<input type="hidden" name="meja_makan" value="<?php echo $pecah['id_meja'];?>">
+							<input type="hidden" name="id_admin" value="<?php echo $_SESSION['sess_id'];?>">
+							<input type="hidden" name="id_pelanggan" value="1">
+							<input type="hidden" name="waktu_pesanan" value="<?php echo $waktu_pesan;?>">
 							<div class="col-md-2">
-								<a class="noeffect" href="index.php?halaman=pesan&id=<?php echo $pecah['id_meja']; ?>">
-								<div class="thumbnail fotomeja" style="border: 0px !important;">	
-									<div class="nomeja">
-									<?php 
-										echo " $pecah[nama_meja] ";
-									 ?>
+								<button class="noeffect button_noeffect" name="pesan">
+									<div class="thumbnail fotomeja" style="border: 0px !important;">	
+										<div class="nomeja">
+											<?php 
+												echo " $pecah[nama_meja] ";
+											 ?>
+										</div>
 									</div>
-								</div>
-							</a>
-							</div>	
+								</button>
+							</div>
+						</form>	
 															
 										<?php
 											}
-										?>
-								
-					<?php } ?>
+										 } ?>
 	</div>
 </div>
+	<?php 
+	if (isset($_POST['pesan'])){
+								$koneksi->query("INSERT INTO pesanan
+									(id_admin,id_pelanggan,id_meja,waktu_pemesanan,id_status) 
+									VALUES('$_POST[id_admin]','$_POST[id_pelanggan]','$_POST[meja_makan]','$_POST[waktu_pesanan]',1)
+										");
+								}
+		 ?>
 	<!--   
 ===============================================TAMBAH MEJA======================================================
 -->
@@ -78,7 +92,7 @@
 					<h2>TAMBAH MEJA</h2>
 				</div>
 
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 		<label>No Meja</label>
 		<input type="text" class="form-control" name="nama">
@@ -157,7 +171,7 @@
 					<h2>HAPUS MEJA</h2>
 				</div>
 
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 						<label>Meja yang ingin dihapus</label>
 						<?php   $ambil = $koneksi->query(	"SELECT * 
@@ -228,4 +242,3 @@
 ================================================HAPUS MEMBER======================================================
 -->
 </div>
-

@@ -4,7 +4,7 @@
 		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahpelanggan">Tambah</a> 
 	</div>
 	<br>
-<div style="height:360px;overflow-y: scroll; ">
+<div style="height:400px;overflow-y: scroll; ">
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -102,7 +102,7 @@
 					<h2>TAMBAH PELANGGAN</h2>
 				</div>
 
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 		<label>Nama</label>
 		<input type="text" class="form-control" name="nama">
@@ -172,7 +172,7 @@
 					<h2>UBAH PELANGGAN</h2>
 				</div>
 
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<input type="hidden" name="id" class="idyangingindiubah">
 	<div class="form-group">
 		<label>Nama</label>

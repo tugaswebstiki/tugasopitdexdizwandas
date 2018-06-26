@@ -1,7 +1,6 @@
 <div class="col-md-12">
 <div class="container judul col-md-12"><h2>PESAN</h2></div>
 
-
 <form >
 
 <div >		
@@ -29,11 +28,11 @@
 
 
 				<?php   
-					$id_meja=$_GET['id'];
+					$nama_meja=$_GET['nama_meja'];
 				?>
 		 
 				<label>No Meja:</label>
-				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $id_meja;?></div>
+				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $nama_meja;?></div>
 			</div>	
 		</div>
 		<div class="col-md-2">
@@ -58,8 +57,11 @@
 
 
 <div>
-	<div class="col-md-8 paddingbutton">
-	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu">Tambah</button>
+	<div class="col-md-6 paddingbutton">
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
+	</div>
+	<div class="col-md-2 paddingbutton">
+	<button type="button" class="btn btn-danger lebar100" data-toggle="modal" data-target="#batal">Batal</button>
 	</div>
 	<div class="col-md-2 paddingbutton">
 	<button type="button" class="btn lebar100" data-toggle="modal" data-target="#">Cetak Nota</button>
@@ -97,99 +99,64 @@
 
 
 
+<!--   
+===============================================CARI MEMBER======================================================
+-->
 
-
-<div id="carimember" class="modal fade" role="dialog">
+<div id="carimember" class="modal fade" role="dialog" tabindex="-1">
 		<div class="modal-dialog">
-			<!-- konten modal-->
 			<div class="modal-content">
-				<!-- heading modal -->
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Pilih Menu</h4>
+					<h4 class="modal-title">Pilih Member</h4>
 				</div>
-				<!-- body modal -->
 				<div class="modal-body">
 
 					<div class="container col-md-12">
-						<form method="POST">Cari :</label>
-							<input type="text" name="cari" class=" ubahcari ">
-							<input type="submit" class="btn btn-primary " value="Cari">
+						<form method="POST" autocomplete="off">
+							<div class="input-group">
+								<span class="input-group-addon"><div class="fa fa-search"></div></span>
+								<input type="text" name="search_text" id="search_text" placeholder="cari.." class="form-control">	
+							</div>
 						</form>
 					</div>
-
-					<?php 
-					if(isset($_GET['cari'])){
-						$cari = $_GET['cari'];
-
-						$ambil = $koneksi->query("SELECT * FROM pelanggan where nama_pelanggan like '%".$cari."%', alamat_pelanggan like '%".$cari."%' ");				
-					}else{
-						$ambil = $koneksi->query("SELECT * FROM pelanggan ");		
-					}
-					?>
-
-
-					<div class="cotainer">
-						<table class="table table-bordered table-hover">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>Nama</th>
-								<th>Alamat</th>
-								<th>No Telepon</th>
-								<th>Aksi</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							 
-							<?php   $no=1;
-								$ambil = $koneksi->query(
-															"SELECT * 
-															FROM pelanggan "
-														);
-															?>
-							<?php while($pecah = $ambil->fetch_assoc()){ 		?>
-							 
-
-							<tr>
-								<td><?php echo $no; ?></td>
-								<td><?php echo $pecah['nama_pelanggan']; ?></td>
-								<td><?php echo $pecah['alamat_pelanggan']; ?></td>
-								<td><?php echo $pecah['no_telp_pelanggan']; ?></td>
-								<td><a id="pilih" type="button" class="btn btn-success" data-id="<?php echo $pecah['id_pelanggan'];?>">Pilih</a></td>
-							</tr>
-
-							<?php
-								$no++;
-								}
-							?>
-
-						</tbody>
-					</table>
+					<span>
+						<br><br><br>
+					</span>
+					<div class="table table-bordered" style="height:300px;overflow-y: scroll;">
+					<div class="" id="result" tabindex="-1">
+						
 					</div>
-					
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" clas="pelanggan_yang di_eksekusi">
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#pilih').click(function(){
+			var url = "index.php?halaman=menu";
+			var id = $('.idyangingindihapus').val();
+			window.location.href= url+'&delete='+id;
+		});
+	});
 
+</script>
 
-
-
-
-
+<!--   
+===============================================CARI MEMBER======================================================
+-->
+<!--   
+===============================================CARI MENU======================================================
+-->
 
 <div id="carimenu" class="modal fade" role="dialog">
 		<div class="modal-dialog">
-			<!-- konten modal-->
 			<div class="modal-content">
-				<!-- heading modal -->
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Pilih Menu</h4>
 				</div>
-				<!-- body modal -->
 				<div class="">
 					<?php   
 						$ambil = $koneksi->query("SELECT * FROM menu WHERE id_status = '1'");
@@ -200,7 +167,6 @@
 
 						while($pecah = $ambil->fetch_assoc()){ 	
 					?>
-						<!-- post -->
 						<a data-toggle="modal" data-target="#pilihmenu" style="cursor: pointer;">
 							<div class="col-md-3">
 							
@@ -219,7 +185,6 @@
 					<?php }$kat++;  ?>
 
 				</div>
-				<!-- footer modal -->
 				<div class="modal-footer">
 					
 					<button type="button" class="btn btn-success" data-dismiss="modal" name="okmenu">OK</button>
@@ -230,7 +195,9 @@
 
 
 
-
+<!--   
+===============================================CARI MENU======================================================
+-->
 
 
 
@@ -268,3 +235,34 @@
 
 
 </div>
+
+<script>
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"cari.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>

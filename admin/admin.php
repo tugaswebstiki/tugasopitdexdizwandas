@@ -7,7 +7,7 @@
 
 
 
-		 <div style="height:360px;overflow-y: scroll; ">
+		 <div style="height:400px;overflow-y: scroll; ">
 		<?php 
 			$ambil = $koneksi->query(
 										"SELECT * 
@@ -100,7 +100,7 @@
 					<h2>TAMBAH ADMIN</h2>
 				</div>
 
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 		<label>Nama</label>
 		<input type="text" class="form-control" name="nama">

@@ -9,9 +9,9 @@ $koneksi= new mysqli('localhost','root','','restorant');
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login W.O.Y Resto</title>
-  <link href="../assets/css/bootstrap.css" rel="stylesheet" />
-  <link href="../assets/css/font-awesome.css" rel="stylesheet" />
-  <link href="../assets/css/custom.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/font-awesome.css" rel="stylesheet" />
+  <link href="assets/css/custom.css" rel="stylesheet" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 </head>
@@ -59,16 +59,17 @@ $koneksi= new mysqli('localhost','root','','restorant');
                   if($yangcocok==1){
                     
                                    $dataProfile = $ambil->fetch_assoc();
+                                   $_SESSION['sess_id']  = $dataProfile['id_admin'];
                                    $_SESSION['sess_nama']  = $dataProfile['nama_admin'];
                                    $_SESSION['sess_foto']  = $dataProfile['foto_admin'];
                              
                            
                         echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
-                        echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+                        echo "<meta http-equiv='refresh' content='1;url=admin/index.php'>";
                   }
                   else{
                         echo "<div class='alert alert-danger'>LOGIN GAGAL</div>";
-                        echo "<meta http-equiv='refresh' content='1;url=login.php'>";
+                        echo "<meta http-equiv='refresh' content='1;url=index.php'>";
                   }
                  }
 
@@ -86,10 +87,10 @@ $koneksi= new mysqli('localhost','root','','restorant');
 
 
 
-<script src="../assets/js/jquery-1.10.2.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/jquery.metisMenu.js"></script>
-<script src="../assets/js/custom.js"></script>
+<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="assets/js/custom.js"></script>
 
 
 
