@@ -1,6 +1,19 @@
 <div class="col-md-12">
 <div class="container judul col-md-12"><h2>PESAN</h2></div>
-
+<?php 
+$meja_yang_dieksekusi = $_GET['nama_meja'];
+echo $meja_yang_dieksekusi;
+$ambil = $koneksi->query("SELECT * 
+						FROM admin 
+						INNER JOIN(pelanggan 
+						INNER JOIN(pesanan INNER JOIN meja
+						ON pesanan.id_meja=meja.id_meja)
+						ON pesanan.id_pelanggan=pelanggan.id_pelanggan)
+						ON pesanan.id_admin=admin.id_admin
+						WHERE pesanan.id_meja = $meja_yang_dieksekusi 
+						");
+$pecah = $ambil->fetch_assoc();
+?>
 <form >
 
 <div >		
@@ -11,7 +24,7 @@
 				<div>
 					<a type="button" class="btn btn-default lebar100" data-toggle="modal" data-target="#carimember" >
 						<?php 
-							echo "REGULER";
+							echo $pecah['nama_pelanggan'];
 						 ?>
 					</a>
 				</div>
@@ -20,19 +33,15 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<label for="alamat">Admin:</label>
-				<div class="form-control" ><?php echo $_SESSION['sess_nama'];?></div>
+				<div class="form-control" ><?php echo $pecah['nama_admin'];?></div>
 			</div>	
 		</div>
 		<div class="col-md-2">
 			<div class="form-group">
 
-
-				<?php   
-					$nama_meja=$_GET['nama_meja'];
-				?>
 		 
 				<label>No Meja:</label>
-				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $nama_meja;?></div>
+				<div class="form-control" id="no_meja"><?php echo "Meja ";echo $pecah['nama_meja'];?></div>
 			</div>	
 		</div>
 		<div class="col-md-2">

@@ -28,9 +28,10 @@
 					if ($pecah['id_status']==1) {
 					?>
 
-						<form>
+						<form method="post">
+							<input type="hidden" id="id_meja" value="<?php echo $pecah['id_meja'];?>">
 							<div class="col-md-2">
-								<a class="noeffect" id="cek_meja">
+								<button class="noeffect button_noeffect" name="cek_meja">
 									<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
 										<div class="nomeja">
 										<?php 
@@ -38,7 +39,7 @@
 										 ?>
 										</div>
 									</div>
-								</a>
+								</button>
 							</div>	
 						</form>				
 
@@ -47,7 +48,8 @@
 										?>
 
 						<form method="post">
-							<input type="hidden" name="meja_makan" value="<?php echo $pecah['id_meja'];?>">
+							<input type="hidden" id="id_meja" value="<?php echo $pecah['id_meja'];?>">
+							<input type="hidden" id="meja_makan" value="<?php echo $pecah['nama_meja'];?>">
 							<input type="hidden" name="id_admin" value="<?php echo $_SESSION['sess_id'];?>">
 							<input type="hidden" name="id_pelanggan" value="1">
 							<input type="hidden" name="waktu_pesanan" value="<?php echo $waktu_pesan;?>">
@@ -73,9 +75,29 @@
 	if (isset($_POST['pesan'])){
 								$koneksi->query("INSERT INTO pesanan
 									(id_admin,id_pelanggan,id_meja,waktu_pemesanan,id_status) 
-									VALUES('$_POST[id_admin]','$_POST[id_pelanggan]','$_POST[meja_makan]','$_POST[waktu_pesanan]',1)
+									VALUES('$_POST[id_admin]','$_POST[id_pelanggan]','$_POST[id_meja]','$_POST[waktu_pesanan]',1)
 										");
+								$koneksi->query("UPDATE meja
+									SET id_status = 1
+									WHERE id_meja ='$_POST[id_meja]'
+										");
+										?>
+										<script type="text/javascript">
+											var id = $('#id_meja').val();
+											window.location.href="index.php?halaman=pesan&nama_meja="+id;
+										</script>
+										<?php
 								}
+
+
+	if (isset($_POST['cek_meja'])) {	
+										?>
+										<script type="text/javascript">
+											var id = $('#id_meja').val();
+											window.location.href="index.php?halaman=pesan&nama_meja="+id;
+										</script>
+										<?php	
+	}
 		 ?>
 	<!--   
 ===============================================TAMBAH MEJA======================================================
