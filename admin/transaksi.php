@@ -21,6 +21,7 @@
 			<th>Meja</th>
 			<th>Waktu Transaksi</th>
 			<th>Total Belanja</th>
+			<th>Status Transaksi</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>
@@ -30,10 +31,12 @@
 		<?php   $no=1;
 			$ambil = $koneksi->query(	"SELECT * 
 										FROM admin 
+										INNER JOIN( status
 										INNER JOIN( pelanggan
 										INNER JOIN( pesanan INNER JOIN meja
 										ON pesanan.id_meja=meja.id_meja)
 										ON pesanan.id_pelanggan=pelanggan.id_pelanggan)
+										ON pesanan.id_status=status.id_status)
 										ON pesanan.id_admin=admin.id_admin");
 	
 										?>
@@ -50,6 +53,7 @@
 			<td><?php echo $pecah['nama_meja']; ?></td>
 			<td><?php echo $pecah['waktu_pemesanan']; ?></td>
 			<td><?php echo $pecah['total_harga']; ?></td>
+			<td><?php echo $pecah['sedang']; ?></td>
 			<td> 
 				<a type="button" 
 				id="custId"

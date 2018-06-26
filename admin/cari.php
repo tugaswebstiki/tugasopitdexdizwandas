@@ -1,3 +1,4 @@
+<div>
 <?php
 $koneksi= new mysqli('localhost','root','','restorant');
 $output = '';
@@ -35,7 +36,9 @@ if(mysqli_num_rows($result) > 0)
     <td>'.$row["nama_pelanggan"].'</td>
     <td>'.$row["alamat_pelanggan"].'</td>
     <td>'.$row["no_telp_pelanggan"].'</td>
-    <td><a id="pilih" type="button" class="btn btn-success" data-id='.$row["id_pelanggan"].'>Pilih</a></td>
+    <td><form method="post">
+    <input type="hidden" value='.$row["id_pelanggan"].'></input>
+    <botton id="pilih" class="btn btn-success">Pilih</botton></form></td>
    </tr>
   ';
  }
@@ -47,3 +50,4 @@ else
 }
 
 ?>
+</div>

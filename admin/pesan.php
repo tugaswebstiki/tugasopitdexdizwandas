@@ -44,16 +44,14 @@ $pecah = $ambil->fetch_assoc();
 			</div>	
 		</div>
 		<div class="col-md-2">
-			<div class="form-group">
-				<label>&nbsp</label>
-				<a type="" class="btn btn-primary form-control ">Simpan</a>
-			</div>	
+			<label>&nbsp</label>
+			<button type="button" class="btn btn-warning form-control" data-toggle="modal" data-target="#">Selesai</button>
 		</div>
 		
 </div>
 
 	
-
+	
 
 	
 
@@ -65,17 +63,19 @@ $pecah = $ambil->fetch_assoc();
 
 
 <div>
-	<div class="col-md-6 paddingbutton">
+	<div class="col-md-8 paddingbutton">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#carimenu"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
-	</div>
-	<div class="col-md-2 paddingbutton">
-	<button type="button" class="btn btn-danger lebar100" data-toggle="modal" data-target="#batal">Batal</button>
 	</div>
 	<div class="col-md-2 paddingbutton">
 	<button type="button" class="btn lebar100" data-toggle="modal" data-target="#">Cetak Nota</button>
 	</div>
 	<div class="col-md-2 paddingbutton">
-	<button type="button" class="btn btn-warning form-control" data-toggle="modal" data-target="#">Selesai</button>
+	<a id="batal" 
+			data-meja="<?php echo $pecah['id_meja'];?>" 
+			type="button" 
+			class="btn btn-danger lebar100" 
+			data-toggle="modal" 
+			data-target="#batalpesan">Batal</a>
 	</div>
 </div>
 
@@ -102,7 +102,15 @@ $pecah = $ambil->fetch_assoc();
 </div>
 </div>
 
-
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click','#batal',function(e){
+					e.preventDefault();
+					var meja = $(this).data('meja');
+					$('.idyangingindihapus').val(meja);
+			});
+	});
+</script>
 
 
 
@@ -133,13 +141,13 @@ $pecah = $ambil->fetch_assoc();
 					<div class="table table-bordered" style="height:300px;overflow-y: scroll;">
 					<div class="" id="result" tabindex="-1">
 						
-					</div>
+					</div><input type="hidden" clas="pelanggan_yang_di_eksekusi" value="<?php echo $meja_yang_dieksekusi ?>">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<input type="hidden" clas="pelanggan_yang_di_eksekusi">
+	
 
 
 <!--   
@@ -230,12 +238,59 @@ $pecah = $ambil->fetch_assoc();
 	</div>
 
 
+<!--   
+================================================HAPUS PESANAN======================================================
+-->
 
+<div class="modal fade" id="batalpesan" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm" role="document"> 
+		<div class="modal-content">
+			<div class="modal-body">
 
+					<input type="hidden" name="id" class="idyangingindihapus">
+					<h4 align="center"><b>Yakin ingin dibatalkan ?</b></h4><hr>
+					<div class="col-md-2"></div>
+					<button type="button" class="btn btn-danger col-md-3 delete_aja_gpp" name="ya" >YA</button>
+					<div class="col-md-2"></div>
+					<button type="button" data-dismiss="modal" class="btn btn-success col-md-3 hapuspesanan_close" name="tidak">TIDAK</button>
+					<div class="col-md-2"></div>
+					<hr><br>
+				<?php 
+				if (isset($_GET['delete'])) 
+					{		
+						$mejayangdiexsekusi = $_GET['delete'];
+						$koneksi->query("DELETE FROM pesanan WHERE id_meja=$mejayangdiexsekusi AND id_status=1");
+						$koneksi->query("UPDATE meja SET id_status = 2 WHERE id_meja ='$mejayangdiexsekusi'");
+						echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 
+						
+					}
+				 ?>
+
+			</div>
+		</div>
+	</div>
 </div>
 
-<script>
+
+<!--   
+================================================HAPUS PESANAN======================================================
+-->
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.hapuspesanan_close').click(function(){
+			$('#batalpesan').modal('toggle');
+		});
+		$('.delete_aja_gpp').click(function(){
+			var url = "index.php?halaman=pesan&nama_meja=";
+			var id = $('.idyangingindihapus').val();
+			window.location.href= url+id+'&delete='+id;
+		});
+	});
+
 $(document).ready(function(){
 
  load_data();
