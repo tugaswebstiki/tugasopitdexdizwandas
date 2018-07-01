@@ -107,7 +107,7 @@
 				<form method="post" enctype="multipart/form-data" autocomplete="off">
 					<div class="form-group">
 						<label>Nama</label>
-						<input type="text" class="form-control" name="nama">
+						<input type="text" class="form-control" name="nama" required="">
 					</div>
 
 					<div class="form-group">
@@ -115,7 +115,7 @@
 						<?php   $ambil = $koneksi->query(	"SELECT * 
 							FROM kategori_makanan");
 							?>
-							<select class="form-control" name="kategori">
+							<select class="form-control" name="kategori" required="">
 
 								<option>Pilih Kategori</option>
 
@@ -131,10 +131,10 @@
 
 							<div class="form-group">
 								<label>Harga</label>
-								<input type="number" class="form-control" name="harga">
+								<input type="number" class="form-control" name="harga" required="">
 							</div>
 
-							<img src="../assets/img/produk/default.png" id="gambar_nodin" width="120px" height="120px" alt="Preview Gambar" />
+							<img src="../assets/img/default.png" id="gambar_nodin" width="120px" height="120px" alt="Preview Gambar" />
 
 							<div class="form-group">
 								<label>Gambar</label>
@@ -152,10 +152,25 @@
 							<hr>
 							<button class="btn btn-success" name="save">Simpan</button>
 
-							<?php 
+				<?php 
 
-							if (isset($_POST['save'])) 
-							{	
+				if (isset($_POST['save'])) 
+						{	
+							$name_check = 	mysqli_num_rows(
+							mysqli_query($koneksi,
+							"SELECT * FROM menu WHERE nama_menu ='$_POST[nama]' "));
+
+							if ($name_check>0) {
+											?><script type="text/javascript">
+												swal("Sudah ada", 
+												{	icon : "warning",
+													className : "sweetalertmn",
+													button: false,
+													timer: 1000
+												});
+												</script><?php
+										}
+									else{
 
 								if ($_FILES['foto_produk']['size'] == 0)
 								{
@@ -186,8 +201,8 @@
 												});
 										</script><?php	
 									echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=menu'>";
-							}
-
+									}
+								}
 								?>
 
 
@@ -320,7 +335,7 @@
 			  										timer: 1000
 												});
 										</script><?php	
-								echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=menu'>";		
+								echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=menu'>";		
 							}
 
 								?>
@@ -363,17 +378,19 @@
 						$ambil= $koneksi->query("SELECT * FROM menu WHERE id_menu='$id'");
 						$pecah= $ambil->fetch_assoc();
 						$foto_menu=$pecah['fotomenu'];
-
-						if (file_exists("../assets/img/produk/$foto_menu")) {
+						if ($foto_menu!='default.png') {
+							if (file_exists("../assets/img/produk/$foto_menu")) {
 							unlink("../assets/img/produk/$foto_menu");
-						}
+							}
 
+						}
+						
 
 						$koneksi->query("DELETE FROM menu WHERE id_menu='$id'");
 
 
 						
-						echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=menu'>";
+						echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=menu'>";
 
 						
 					}

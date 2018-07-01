@@ -82,3 +82,18 @@
   width: 100% !important;
   background: none !important;
 }
+.thumbnail_menu{
+  border: 4px solid #ddd !important;
+}
+.menu{
+  margin-top: 3%;
+}
+.label_menu{
+  color: black;
+  text-align: center;
+  font-size: 15px !important;
+}
+.label_kategorimenu{
+  font-size: 20px !important;
+  text-align: center !important;
+}

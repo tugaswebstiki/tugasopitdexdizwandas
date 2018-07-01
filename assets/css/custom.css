@@ -355,7 +355,7 @@ line-height: 1.428571429;
     background-color: transparent;
     border: 0px solid;
     height: 20px;
-    width: 160px;
+    width: 100%;
 }
 .paneljam
 {   color: white;
@@ -367,4 +367,6 @@ line-height: 1.428571429;
     color: white;
     font-family: 'Open Sans', sans-serif;
 }
-
+.labelnama{
+    border: none;
+}

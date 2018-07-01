@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <?php 
-
 session_start();
 $koneksi= new mysqli('localhost','root','','restorant');
 
 ?>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -65,11 +65,10 @@ $koneksi= new mysqli('localhost','root','','restorant');
                              
                            
                         echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
-                        echo "<meta http-equiv='refresh' content='1;url=admin/index.php'>";
+                        echo "<meta http-equiv='refresh' content='0.8;url=admin/index.php'>";
                   }
                   else{
                         echo "<div class='alert alert-danger'>LOGIN GAGAL</div>";
-                        echo "<meta http-equiv='refresh' content='1;url=index.php'>";
                   }
                  }
 

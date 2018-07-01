@@ -16,10 +16,10 @@
 	<thead>
 		<tr>
 			<th>No</th>
+			<th>Waktu Transaksi</th>
 			<th>Admin</th>
 			<th>Member</th>
 			<th>Meja</th>
-			<th>Waktu Transaksi</th>
 			<th>Total Belanja</th>
 			<th>Status Transaksi</th>
 			<th>Aksi</th>
@@ -37,7 +37,8 @@
 										ON pesanan.id_meja=meja.id_meja)
 										ON pesanan.id_pelanggan=pelanggan.id_pelanggan)
 										ON pesanan.id_status=status.id_status)
-										ON pesanan.id_admin=admin.id_admin");
+										ON pesanan.id_admin=admin.id_admin
+										ORDER BY pesanan.waktu_pemesanan desc");
 	
 										?>
 
@@ -48,10 +49,10 @@
 
 
 			<td><?php echo $no; ?></td>
+			<td><?php echo $pecah['waktu_pemesanan']; ?></td>
 			<td><?php echo $pecah['nama_admin']; ?></td>
 			<td><?php echo $pecah['nama_pelanggan']; ?></td>
 			<td><?php echo $pecah['nama_meja']; ?></td>
-			<td><?php echo $pecah['waktu_pemesanan']; ?></td>
 			<td><?php echo $pecah['total_harga']; ?></td>
 			<td><?php echo $pecah['sedang']; ?></td>
 			<td> 
