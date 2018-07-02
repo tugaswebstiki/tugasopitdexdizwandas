@@ -224,6 +224,38 @@ if (isset($_GET['pilih']))
             { 
              $korban=$_GET['pilih'];
              $koneksi->query("UPDATE pesanan SET id_pelanggan ='$korban' WHERE id_meja ='$meja_yang_dieksekusi' AND id_status =1 ");
+             	//input nilai jumlah dan diskon=================================================================================
+
+						$ambilpel=$koneksi->query("SELECT * FROM pesanan WHERE id_meja='$meja_yang_dieksekusi' AND id_status =1 ");
+						$pecahpesanan=$ambilpel->fetch_assoc();
+						$id_pesanan_now=$pecahpesanan['id_pesanan'];
+						if ($pecahpesanan['id_pelanggan']>1) {
+
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$id_pesanan_now'");
+								$total = $ambiltotal->fetch_assoc();
+								$diskon = $total['totalharga']/10;
+								$setelahdiskon =  $total['totalharga']-$diskon;
+								$koneksi->query("UPDATE pesanan 
+												 SET total_harga = $setelahdiskon,diskon =$diskon
+												 WHERE id_pesanan ='$id_pesanan_now'");
+
+						}
+						else{
+								$diskon = "0";
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$id_pesanan_now'");
+								$total = $ambiltotal->fetch_assoc();
+								$koneksi->query("UPDATE pesanan
+												 SET total_harga = $total[totalharga], diskon = $diskon
+												 WHERE id_pesanan ='$id_pesanan_now'");
+							
+						}
+						//input nilai jumlah===================================================================================
+
+
              echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$meja_yang_dieksekusi'";
                   
                 }
@@ -340,8 +372,8 @@ if (isset($_GET['pilih']))
 					</form>
 							<?php 
 
-									if (isset($_POST['okmenu'])) 
-							            { 
+			if (isset($_POST['okmenu'])) 
+									{ 
 							           
 
 										$name_check = 	mysqli_num_rows(
@@ -360,9 +392,6 @@ if (isset($_GET['pilih']))
 														</script><?php
 											}
 										else{
-
-
-
 
 
 									$ambil = $koneksi->query("SELECT * 
@@ -386,7 +415,43 @@ if (isset($_GET['pilih']))
 							             $koneksi->query("	INSERT INTO pesan
 							             					(id_pesanan,id_menu,jumlah_pesan,harga_pesan)
 							             					 VALUES($id_pesanan_now,$menukorban,'$_POST[jumlahpesan]',$hargapesan)");
-							             echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$meja_yang_dieksekusi'";
+						//input nilai jumlah dan diskon=================================================================================
+
+						$ambilpel=$koneksi->query("SELECT * FROM pesanan WHERE id_pesanan='$id_pesanan_now' AND id_status =1 ");
+						$pecahpesanan=$ambilpel->fetch_assoc();
+
+						if ($pecahpesanan['id_pelanggan']>1) {
+
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$id_pesanan_now'");
+								$total = $ambiltotal->fetch_assoc();
+								$diskon = $total['totalharga']/10;
+								$setelahdiskon =  $total['totalharga']-$diskon;
+								$koneksi->query("UPDATE pesanan 
+												 SET total_harga = $setelahdiskon,diskon =$diskon
+												 WHERE id_pesanan ='$id_pesanan_now'");
+
+						}
+						else{
+								$diskon = "0";
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$id_pesanan_now'");
+								$total = $ambiltotal->fetch_assoc();
+								$koneksi->query("UPDATE pesanan
+												 SET total_harga = $total[totalharga], diskon = $diskon
+												 WHERE id_pesanan ='$id_pesanan_now'");
+							
+						}
+						//input nilai jumlah===================================================================================
+
+
+
+						echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$meja_yang_dieksekusi'";
+							                	
+
+
 							                	}
 							                }
 							 ?>
@@ -442,6 +507,36 @@ if (isset($_GET['pilih']))
 								$koneksi->query("UPDATE pesan
 												 SET jumlah_pesan='$_POST[jumlah]', harga_pesan='$jumlah'
 												 WHERE id_pesanan='$idpesanan' AND id_menu = '$_POST[idmenu]' ");
+						//input nilai jumlah dan diskon=================================================================================
+
+						$ambilpel=$koneksi->query("SELECT * FROM pesanan WHERE id_pesanan='$idpesanan' AND id_status =1 ");
+						$pecahpesanan=$ambilpel->fetch_assoc();
+
+						if ($pecahpesanan['id_pelanggan']>1) {
+
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$idpesanan'");
+								$total = $ambiltotal->fetch_assoc();
+								$diskon = $total['totalharga']/10;
+								$setelahdiskon =  $total['totalharga']-$diskon;
+								$koneksi->query("UPDATE pesanan 
+												 SET total_harga = $setelahdiskon,diskon =$diskon
+												 WHERE id_pesanan ='$idpesanan'");
+
+						}
+						else{
+								$diskon = "0";
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$idpesanan'");
+								$total = $ambiltotal->fetch_assoc();
+								$koneksi->query("UPDATE pesanan
+												 SET total_harga = $total[totalharga], diskon = $diskon
+												 WHERE id_pesanan ='$idpesanan'");
+							
+						}
+						//input nilai jumlah===================================================================================
 										
 							echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$meja_yang_dieksekusi'";		
 							}
@@ -489,6 +584,36 @@ if (isset($_GET['pilih']))
 
 						$koneksi->query("DELETE FROM pesan WHERE id_pesanan='$pesanannya' AND id_menu ='$menudaripesanan'");
 
+						//input nilai jumlah=================================================================================
+
+						$ambilpel=$koneksi->query("SELECT * FROM pesanan WHERE id_pesanan='$pesanannya' AND id_status =1 ");
+						$pecahpesanan=$ambilpel->fetch_assoc();
+
+						if ($pecahpesanan['id_pelanggan']>1) {
+
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$pesanannya'");
+								$total = $ambiltotal->fetch_assoc();
+								$diskon = $total['totalharga']/10;
+								$setelahdiskon =  $total['totalharga']-$diskon;
+								$koneksi->query("UPDATE pesanan 
+												 SET total_harga = $setelahdiskon,diskon =$diskon
+												 WHERE id_pesanan ='$pesanannya'");
+
+						}
+						else{
+								$diskon = "0";
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$pesanannya'");
+								$total = $ambiltotal->fetch_assoc();
+								$koneksi->query("UPDATE pesanan
+												 SET total_harga = $total[totalharga], diskon = $diskon
+												 WHERE id_pesanan ='$pesanannya'");
+							
+						}
+						//input nilai jumlah===================================================================================
 
 						
 						echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$meja_yang_dieksekusi'";
@@ -583,20 +708,46 @@ if (isset($_GET['pilih']))
 					{		
 						$mejayangdiexsekusi = $_GET['finish'];
 						$idpesanannya = $_GET['pesanan'];
-						$koneksi->query("UPDATE pesanan
-										 SET id_status = 2
-										 WHERE id_meja=$mejayangdiexsekusi AND id_status=1");
-						$koneksi->query("UPDATE meja SET id_status = 2 WHERE id_meja ='$mejayangdiexsekusi'");
-
-
 						$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
 													   FROM pesan
 													   WHERE id_pesanan ='$idpesanannya'");
 						$total = $ambiltotal->fetch_assoc();
 						$koneksi->query("UPDATE pesanan SET total_harga = $total[totalharga] WHERE id_pesanan ='$idpesanannya'");
-						echo "<meta http-equiv='refresh' content='0;url=index.php'>";
+					//input nilai jumlah=================================================================================
 
-						
+						$ambilpel=$koneksi->query("SELECT * FROM pesanan WHERE id_pesanan='$idpesanannya' AND id_status =1 ");
+						$pecahpesanan=$ambilpel->fetch_assoc();
+
+						if ($pecahpesanan['id_pelanggan']>1) {
+
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$idpesanannya'");
+								$total = $ambiltotal->fetch_assoc();
+								$diskon = $total['totalharga']/10;
+								$setelahdiskon =  $total['totalharga']-$diskon;
+								$koneksi->query("UPDATE pesanan 
+												 SET total_harga = $setelahdiskon,diskon =$diskon
+												 WHERE id_pesanan ='$idpesanannya'");
+
+						}
+						else{
+								$diskon = "0";
+								$ambiltotal = $koneksi->query("SELECT SUM(harga_pesan) AS 'totalharga'
+															   FROM pesan
+															   WHERE id_pesanan ='$idpesanannya'");
+								$total = $ambiltotal->fetch_assoc();
+								$koneksi->query("UPDATE pesanan
+												 SET total_harga = $total[totalharga], diskon = $diskon
+												 WHERE id_pesanan ='$idpesanannya'");
+							
+						}
+						//input nilai jumlah===================================================================================
+						$koneksi->query("UPDATE pesanan
+										 SET id_status = 2
+										 WHERE id_meja=$mejayangdiexsekusi AND id_status=1");
+						$koneksi->query("UPDATE meja SET id_status = 2 WHERE id_meja ='$mejayangdiexsekusi'");
+						echo "<meta http-equiv='refresh' content='0;url=index.php'>";
 					}
 				 ?>
 

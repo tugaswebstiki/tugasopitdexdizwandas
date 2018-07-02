@@ -12,7 +12,7 @@
 	</div>
 	<br>
 <div style="height:400px;overflow-y: scroll; ">
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>No</th>
@@ -20,6 +20,7 @@
 			<th>Admin</th>
 			<th>Member</th>
 			<th>Meja</th>
+			<th>Diskon</th>
 			<th>Total Belanja</th>
 			<th>Status Transaksi</th>
 			<th>Aksi</th>
@@ -53,6 +54,7 @@
 			<td><?php echo $pecah['nama_admin']; ?></td>
 			<td><?php echo $pecah['nama_pelanggan']; ?></td>
 			<td><?php echo $pecah['nama_meja']; ?></td>
+			<td><?php echo $pecah['diskon']; ?></td>
 			<td><?php echo $pecah['total_harga']; ?></td>
 			<td><?php echo $pecah['sedang']; ?></td>
 			<td> 
