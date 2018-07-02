@@ -11,11 +11,11 @@
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>Foto</th>
 				<th>Nama</th>
 				<th>Kategori</th>
 				<th>Harga</th>
 				<th>Status</th>
+				<th>Foto</th>
 				<th class="lebar18">Aksi</th>
 			</tr>
 		</thead>
@@ -36,11 +36,11 @@
 			
 				<tr>
 					<td><?php echo $no; ?></td>
-					<td><img class="img-rounded" width="80px" height="80px" src="../assets/img/produk/<?php echo $pecah['fotomenu'] ?>" ></td>
 					<td><?php echo $pecah['nama_menu']; ?></td>
 					<td><?php echo $pecah['nama_kategori']; ?></td>
 					<td><?php echo $pecah['harga_menu']; ?></td>
 					<td><?php echo $pecah['status']; ?></td>
+					<td><img class="img-rounded" width="80px" height="80px" src="../assets/img/produk/<?php echo $pecah['fotomenu'] ?>" ></td>
 					<td>
 						<a id="ubah" type="button" class="btn btn-warning" data-toggle="modal" data-target="#ubahmenu" 
 						data-id="<?php echo $pecah['id_menu'];?>" 

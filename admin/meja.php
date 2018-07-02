@@ -2,7 +2,7 @@
 <?php   date_default_timezone_set('Asia/Kuala_Lumpur');
 	$waktu_pesan = date('Y-m-d H:i:s', time());
 ?>
-	<div><h2>DAFTAR MEJA</h2><hr></div>
+	<div><h2>MEJA</h2><hr></div>
 	<div class="lebar80">
 		<a href="#tambahmeja" data-toggle="modal" class="btn btn-success">Tambah</a> 
 		<a href="#hapusmeja" data-toggle="modal" class="btn btn-danger floatright">Hapus</a> 
