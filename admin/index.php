@@ -5,10 +5,13 @@
     
     $hasil_rupiah = "Rp " . number_format($angka,0,',','.');
     return $hasil_rupiah;
- 
 }
+    if (!isset($_SESSION['sess_nama'])) {
+        echo "<script>location='../index.php'</script>";
+    }
     $koneksi= new mysqli('localhost','root','','restorant');
  ?>
+
 <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,7 +109,7 @@
             
             <div class=" paneljam">
            
-             &nbsp; <a href="../index.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+             &nbsp; <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
              <div class=" paneljam">
              
              <?php
@@ -165,6 +168,9 @@
                         }
                         elseif ($_GET['halaman']=='detail') {
                             include'detail.php';
+                        }
+                        elseif ($_GET['halaman']=='logout') {
+                            include'logout.php';
                         }
                         
                     }

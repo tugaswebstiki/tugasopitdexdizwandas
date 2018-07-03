@@ -51,7 +51,7 @@
 
 			<td><?php echo $no; ?></td>
 			<td><?php echo $pecah['waktu_pemesanan']; ?></td>
-			<td><?php echo $pecah['nama_admin']; ?></td>
+			<td><?php echo"A-"; echo$pecah['id_admin']; ?></td>
 			<td><?php echo $pecah['nama_pelanggan']; ?></td>
 			<td><?php echo $pecah['nama_meja']; ?></td>
 			<td align="right"><?php echo rupiah($pecah['diskon']); ?></td>

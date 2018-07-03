@@ -75,13 +75,13 @@
 	if (isset($_POST['pesan'])){
 					$koneksi->query("INSERT INTO pesanan
 									(id_admin,id_pelanggan,id_meja,waktu_pemesanan,id_status) 
-									VALUES('$_POST[id_admin]','$_POST[id_pelanggan]','$_POST[id_meja]','$_POST[waktu_pesanan]',1)
+									VALUES('$_POST[id_admin]',1,'$_POST[id_meja]','$_POST[waktu_pesanan]',1)
 										");
 					$koneksi->query("UPDATE meja
 									SET id_status = 1
 									WHERE id_meja ='$_POST[id_meja]'
 										");
-					echo "<meta http-equiv='refresh' content='0.0001;url=index.php?halaman=pesan&nama_meja=$_POST[id_meja]'>";	
+					echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=pesan&nama_meja=$_POST[id_meja]'>";	
 	
 								}
 	

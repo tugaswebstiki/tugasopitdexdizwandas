@@ -34,7 +34,7 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 		<div class="col-md-4">
 			<div class="form-group">
 				<label for="alamat">Admin:</label>
-				<div class="form-control" ><?php echo $pecah['nama_admin'];?></div>
+				<div class="form-control" ><?php echo $_SESSION['sess_nama'];?></div>
 			</div>	
 		</div>
 		<div class="col-md-2">

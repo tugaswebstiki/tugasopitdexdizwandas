@@ -65,7 +65,7 @@
 	
 
 <div class="modal fade" id="detail" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document" style="width: 30%;"> 
+	<div class="modal-dialog modal-md" role="document"> 
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="modal-header">
