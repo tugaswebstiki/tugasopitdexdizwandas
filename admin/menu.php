@@ -38,7 +38,7 @@
 					<td><?php echo $no; ?></td>
 					<td><?php echo $pecah['nama_menu']; ?></td>
 					<td><?php echo $pecah['nama_kategori']; ?></td>
-					<td><?php echo $pecah['harga_menu']; ?></td>
+					<td><?php echo rupiah($pecah['harga_menu']); ?></td>
 					<td><?php echo $pecah['status']; ?></td>
 					<td><img class="img-rounded" width="80px" height="80px" src="../assets/img/produk/<?php echo $pecah['fotomenu'] ?>" ></td>
 					<td>

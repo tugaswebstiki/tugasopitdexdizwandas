@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php 
     session_start();
-
+    function rupiah($angka){
+    
+    $hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+    return $hasil_rupiah;
+ 
+}
     $koneksi= new mysqli('localhost','root','','restorant');
  ?>
 <head>
@@ -96,7 +101,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">W.O.Y Resto</a> 
+                <div class="jamdigital navbar-brand" id="jamdigital"></div>
             </div>
             
             <div class=" paneljam">
@@ -123,7 +128,7 @@
         <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
             		<li class="text-center namaadmin">
-                                <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />                              
+                                <img src="../assets/img/logo2.png" class="user-image img-responsive logo_ngajeng" />                              
             		</li>
                   
                 <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>

@@ -5,6 +5,7 @@
 			if ($_SESSION['sess_id']<3) {
 		 ?>
 		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
+		<a type="button" class="btn btn-danger floatright" data-toggle="modal" data-target="#hapusadmin">Hapus</a>
 	<?php } ?>
 	</div>
 	<br>
@@ -240,6 +241,76 @@
 ================================================TAMBAH ADMIN======================================================
 -->
 
+<!--   
+===============================================HAPUS MEJA======================================================
+-->
 
+<div class="modal fade" id="hapusadmin" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm" role="document"> 
+		<div class="modal-content">
+			<div class="modal-body">
+
+
+
+				<div class="modal-header">
+					<h2>HAPUS ADMIN</h2>
+				</div>
+
+				<form method="post" enctype="multipart/form-data" autocomplete="off">
+	<div class="form-group">
+						<?php   $ambil = $koneksi->query(	"SELECT * 
+							FROM admin ORDER BY id_admin ASC");
+							?>
+							
+							<select class="form-control" name="korbanadmin">
+
+								<option>Pilih Admin</option>
+
+								<?php
+								while($pecah = $ambil->fetch_assoc()){ 		
+
+
+									if ($pecah['id_admin']>2) {
+									?>
+							
+									<option value="<?php echo $pecah['id_admin']; ?>">
+									
+										<?php echo $pecah['nama_admin']; ?></option>
+
+									<?php  }
+										} ?>
+
+								</select>
+							</div>
+								
+
+	
+	
+<hr>
+	<button class="btn btn-success" name="delete">Hapus</button>
+
+</form>
+
+		<?php 
+
+		if (isset($_POST['delete'])) {
+
+							$koneksi->query("DELETE FROM admin WHERE id_admin='$_POST[korbanadmin]'");				
+
+									echo "<meta http-equiv='refresh' content='0;url=index.php?halaman=admin'>";
+			
+
+			}
+		 ?>
+
+
+
+						</div>	
+					</div>	
+				</div>
+			</div>
+<!--   
+================================================HAPUS MEMBER======================================================
+-->
 
 </div>

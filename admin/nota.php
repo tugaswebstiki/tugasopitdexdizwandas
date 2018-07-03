@@ -13,6 +13,10 @@ $ambil = $koneksi->query("	SELECT *
 							WHERE pesanan.id_pesanan = $pesanan  ");
 $pecah=$ambil->fetch_assoc();
 require_once("../assets/dompdf/dompdf_config.inc.php");
+function rupiah($angka){
+    
+    $hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+    return $hasil_rupiah;}
 $output =
 			'<!DOCTYPE html>'.
 			'<html>'.
@@ -41,7 +45,7 @@ $output =
 				'<thead style="border-bottom-width: 2px;border: 1px solid #ddd;">'.
 					'<tr>'.
 						'<th>No</th>'.
-						'<th>NamaMenu</th>'.
+						'<th>Menu</th>'.
 						'<th>Harga</th>'.
 						'<th>Qty</th>'.
 						'<th>Jumlah</th>'.
@@ -68,9 +72,9 @@ $output =
 $output .=			'<tr style="border: 1px solid #ddd;">'.
 					'<td style="border: 1px solid #ddd;">'.$no.'</td>'.
 					'<td style="border: 1px solid #ddd;">'.$pecah["nama_menu"].'</td>'.
-					'<td style="border: 1px solid #ddd;" align="right">'.$pecah["harga_menu"].'</td>'.
-					'<td style="border: 1px solid #ddd;" align="right">'.$pecah["jumlah_pesan"].'</td>'.
-					'<td style="border: 1px solid #ddd;" align="right">'.$pecah["harga_pesan"].'</td>'.
+					'<td style="border: 1px solid #ddd;" align="right">'.rupiah($pecah["harga_menu"]).'</td>'.
+					'<td style="border: 1px solid #ddd;" align="center">'.$pecah["jumlah_pesan"].'</td>'.
+					'<td style="border: 1px solid #ddd;" align="right">'.rupiah($pecah["harga_pesan"]).'</td>'.
 				'</tr>';
 
 				
@@ -89,25 +93,19 @@ $output .=			'<tr style="border: 1px solid #ddd;">'.
 			
 			 
 $output .=			'<tr>'.
-					'<td></td>'.
-					'<td></td>'.
-					'<td></td>'.
-					'<td >Diskon</td>'.
-					'<td style="border: 1px solid #ddd;" align="right">'.$pecah["diskon"].'</td>'.
+					'<td colspan="4">Diskon</td>'.
+					'<td style="border: 1px solid #ddd;" align="right">'.rupiah($pecah["diskon"]).'</td>'.
 					'</tr>'.
 					'<tr>'.
-					'<td></td>'.
-					'<td></td>'.
-					'<td></td>'.
-					'<td >Total</td>'.
-					'<td style="border: 1px solid #ddd;" align="right">'.$pecah["total_harga"].'</td>'.
+					'<td colspan="4">Total Bayar</td>'.
+					'<td style="border: 1px solid #ddd;" align="right">'.rupiah($pecah["total_harga"]).'</td>'.
 					'</tr>'.
 
 	'</tbody>'.
 '</table>'.
 	'</div>'.
 	'<div class="footer">'.
-		'<h4 align="center"> Terima Kasih </i></h4>'.
+		'<h4 align="center"> Terima Kasih </h4>'.
 	'</div>'.
 '</div>'.
 '</body>'.

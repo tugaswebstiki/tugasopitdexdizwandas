@@ -1,5 +1,9 @@
 <?php 
     $koneksi= new mysqli('localhost','root','','restorant');
+     function rupiah($angka){
+    
+    $hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+    return $hasil_rupiah;}
  ?>
 <?php 
  if($_POST['rowid']) {
@@ -35,7 +39,7 @@
 					<td><?php echo $no; ?></td>
 					<td><?php echo $pecah['nama_menu']; ?></td>
 					<td><?php echo $pecah['jumlah_pesan']; ?></td>
-					<td><?php echo $pecah['harga_pesan']; ?></td>
+					<td align="right"><?php echo rupiah($pecah['harga_pesan']); ?></td>
 					
 				</tr>
 

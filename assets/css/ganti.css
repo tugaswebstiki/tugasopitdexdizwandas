@@ -97,3 +97,11 @@
   font-size: 20px !important;
   text-align: center !important;
 }
+.logo_ngajeng{
+  max-width: none !important;
+  max-height: none !important;
+  width: 90% !important;
+  height: 90% !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}

@@ -54,8 +54,8 @@
 			<td><?php echo $pecah['nama_admin']; ?></td>
 			<td><?php echo $pecah['nama_pelanggan']; ?></td>
 			<td><?php echo $pecah['nama_meja']; ?></td>
-			<td><?php echo $pecah['diskon']; ?></td>
-			<td><?php echo $pecah['total_harga']; ?></td>
+			<td align="right"><?php echo rupiah($pecah['diskon']); ?></td>
+			<td ><?php echo rupiah($pecah['total_harga']); ?></td>
 			<td><?php echo $pecah['sedang']; ?></td>
 			<td> 
 				<a type="button" 

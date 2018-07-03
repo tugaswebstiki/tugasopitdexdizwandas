@@ -370,3 +370,9 @@ line-height: 1.428571429;
 .labelnama{
     border: none;
 }
+.jamdigital{
+    color: white;
+    margin-top: 2%;
+    font-size: 30px;
+    font-weight: 100 !important;
+}

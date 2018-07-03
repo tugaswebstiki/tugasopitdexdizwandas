@@ -122,18 +122,22 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 				<tr>
 					<td><?php echo $no; ?></td>
 					<td><?php echo $pecah['nama_menu']; ?></td>
-					<td><?php echo $pecah['harga_menu']; ?></td>
-					<td><?php echo $pecah['jumlah_pesan']; ?></td>
-					<td><?php echo $pecah['harga_pesan']; ?></td>
-					<td><a id="ubah" type="button" class="btn btn-warning" data-toggle="modal" data-target="#ubahmenu" 
-						data-id="<?php echo $pecah['id_menu'];?>"
-						data-meja="<?php echo $meja_yang_dieksekusi;?>"
-						data-pesanan="<?php echo $pecah['id_pesanan'];?>"
-						data-jumlah="<?php echo $pecah['jumlah_pesan']; ?>">Ubah</a>
-						<a id="hapus" type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapusmenu" 
-						data-id="<?php echo $pecah['id_menu'];?>"
-						data-pesanan="<?php echo $pecah['id_pesanan'];?>"
-						data-meja="<?php echo $meja_yang_dieksekusi;?>">Hapus</a></td>
+					<td align="right"><?php echo rupiah($pecah['harga_menu']); ?></td>
+					<td align="right"><?php echo $pecah['jumlah_pesan']; ?></td>
+					<td align="right"><?php echo rupiah($pecah['harga_pesan']); ?></td>
+					<td>
+						<a 	id="ubah" type="button" class="btn btn-warning" data-toggle="modal" data-target="#ubahmenu" 
+							data-id="<?php echo $pecah['id_menu'];?>"
+							data-meja="<?php echo $meja_yang_dieksekusi;?>"
+							data-pesanan="<?php echo $pecah['id_pesanan'];?>"
+							data-jumlah="<?php echo $pecah['jumlah_pesan']; ?>">Ubah
+						</a>
+						<a 	id="hapus" type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapusmenu" 
+							data-id="<?php echo $pecah['id_menu'];?>"
+							data-pesanan="<?php echo $pecah['id_pesanan'];?>"
+							data-meja="<?php echo $meja_yang_dieksekusi;?>">Hapus
+						</a>
+					</td>
 				</tr>
 
 				<?php
