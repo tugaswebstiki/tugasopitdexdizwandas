@@ -1,7 +1,11 @@
 <div>
 	<div>
 	<div><h2>ADMIN</h2><hr> 
+		<?php 
+			if ($_SESSION['sess_id']<3) {
+		 ?>
 		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
+	<?php } ?>
 	</div>
 	<br>
 

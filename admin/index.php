@@ -123,14 +123,14 @@
         <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
             		<li class="text-center namaadmin">
-                                <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />
-                                
+                                <img src="../assets/img/Profil/<?php echo $_SESSION['sess_foto']; ?>" class="user-image img-responsive coba" />                              
             		</li>
-    <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
-    <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
-    <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
-    <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
-    <li><a href="index.php?halaman=admin"><i class="fa fa-user fa-3x"></i> Admin</a></li>
+                  
+                <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
+                <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
+                <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
+                <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
+                <li><a href="index.php?halaman=admin"><i class="fa fa-user fa-3x"></i> Admin</a></li>
                 
                 </ul>       
         </div>

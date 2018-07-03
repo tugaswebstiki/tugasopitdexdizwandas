@@ -61,7 +61,7 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 
 	
 
-	
+	 
 
 </form>
 
@@ -72,9 +72,11 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 	<div class="col-md-8 paddingbutton">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahmenu"><i class="fa fa-plus"></i>&nbsp&nbspTambah</button>
 	</div>
-	<div class="col-md-2 paddingbutton">
-	<button type="button" class="btn lebar100" data-toggle="modal" data-target="#se">Cetak Nota</button>
-	</div>
+					<form action="nota.php" method="POST" target="_blank">
+					<div class="col-md-2 paddingbutton">
+					<input type="hidden" name="id_pesanan" value="<?php echo$id_pesanan_sekarang ?>">
+					<input type="submit" name="kirim" class="btn lebar100" value="Cetak Nota">
+					</div></form>
 	<div class="col-md-2 paddingbutton">
 	<a id="batal" 
 			data-meja="<?php echo $pecah['id_meja'];?>" 

@@ -105,17 +105,17 @@
 				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 		<label>Nama</label>
-		<input type="text" class="form-control" name="nama">
+		<input type="text" class="form-control" name="nama" required="">
 	</div>
 	
 	<div class="form-group">
 		<label>Alamat</label>
-		<input type="text" class="form-control" name="alamat">
+		<input type="text" class="form-control" name="alamat" required="">
 	</div>
 
 	<div class="form-group">
 		<label>No Telp</label>
-		<input type="text" class="form-control" name="notel">
+		<input type="text" class="form-control" name="notel" required="">
 	</div>
 
 	
