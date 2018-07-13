@@ -116,6 +116,6 @@ $dompdf = new DOMPDF();
 $dompdf->load_html($output);
 $dompdf->set_paper('A6','potrait');
 $dompdf->render();
-$dompdf->stream("Nota", array("Attachment"=>0));
+$dompdf->stream("Nota_belanja", array("Attachment"=>0));
 
 ?>

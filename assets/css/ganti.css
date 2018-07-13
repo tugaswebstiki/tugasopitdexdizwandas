@@ -105,3 +105,10 @@
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
+.lebar128{
+  width: 140px;
+  float: left;
+}
+.floatleft{
+  float: left;
+}

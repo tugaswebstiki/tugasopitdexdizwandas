@@ -139,7 +139,8 @@
                 <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
                 <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
                 <li><a href="index.php?halaman=admin"><i class="fa fa-user fa-3x"></i> Admin</a></li>
-                
+                <li><a href="index.php?halaman=pendapatan"><i class="fa fa-money fa-3x"></i> Pendapatan</a></li>
+                <li><a href="index.php?halaman=penjualan"><i class="fa fa-line-chart fa-3x"></i> Penjualan</a></li>
                 </ul>       
         </div>
         </nav>  
@@ -172,7 +173,12 @@
                         elseif ($_GET['halaman']=='logout') {
                             include'logout.php';
                         }
-                        
+                        elseif ($_GET['halaman']=='pendapatan') {
+                            include'pendapatan.php';
+                        }
+                        elseif ($_GET['halaman']=='penjualan') {
+                            include'penjualan.php';
+                        }
                     }
 
                     else{

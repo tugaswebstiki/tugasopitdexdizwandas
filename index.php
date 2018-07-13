@@ -20,9 +20,7 @@ $koneksi= new mysqli('localhost','root','','restorant');
     <div class="row text-center ">
       <div class="col-md-12">
         <br /><br />
-        <h2> W.O.Y RESTO</h2>
-
-        <h5>( Wandas Opit Yudiana )</h5>
+         <img src="assets/img/logo.jpeg" class="user-image logo_login img-responsive" />
         <br />
       </div>
     </div>
@@ -62,6 +60,7 @@ $koneksi= new mysqli('localhost','root','','restorant');
                                    $_SESSION['sess_id']  = $dataProfile['id_admin'];
                                    $_SESSION['sess_nama']  = $dataProfile['nama_admin'];
                                    $_SESSION['sess_foto']  = $dataProfile['foto_admin'];
+                                   $_SESSION['sess_jbt']  = $dataProfile['id_jabatan'];
                              
                            
                         echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
@@ -89,7 +88,6 @@ $koneksi= new mysqli('localhost','root','','restorant');
 <script src="assets/js/jquery-1.10.2.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery.metisMenu.js"></script>
-<script src="assets/js/custom.js"></script>
 
 
 

@@ -376,3 +376,7 @@ line-height: 1.428571429;
     font-size: 30px;
     font-weight: 100 !important;
 }
+.logo_login{
+  max-width: 400px !important;
+  width: 400px !important;
+}

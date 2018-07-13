@@ -29,7 +29,7 @@
 					?>
 
 						<form method="post">
-							<div class="col-md-2">
+							<div class="lebar128">
 								<a href="index.php?halaman=pesan&nama_meja=<?php echo $pecah['id_meja'] ?>" 
 									data-id="<?php echo $pecah['id_meja'];?>" class="noeffect button_noeffect" id="cek_meja">
 									<div class="thumbnail fotomeja mejapenuh" style="border: 0px !important;">	
@@ -53,7 +53,7 @@
 							<input type="hidden" name="id_admin" value="<?php echo $_SESSION['sess_id'];?>">
 							<input type="hidden" name="id_pelanggan" value="1">
 							<input type="hidden" name="waktu_pesanan" value="<?php echo $waktu_pesan;?>">
-							<div class="col-md-2">
+							<div class="lebar128">
 								<button class="noeffect button_noeffect" name="pesan">
 									<div class="thumbnail fotomeja" style="border: 0px !important;">	
 										<div class="nomeja">
@@ -116,10 +116,6 @@
 		<input type="text" class="form-control" name="nama">
 	</div>
 	
-	<div class="form-group">
-		<label>Jumlah Kursi</label>
-		<input type="text" class="form-control" name="jk">
-	</div>
 <hr>
 	<button class="btn btn-success" name="save">Simpan</button>
 
@@ -147,8 +143,8 @@
 			else{
 
 			$koneksi->query("	INSERT INTO meja
-								(nama_meja,jumlah_kursi,id_status) 
-								VALUES('$_POST[nama]','$_POST[jk]',2);
+								(nama_meja,id_status) 
+								VALUES('$_POST[nama]',2);
 							");
 							?><script type="text/javascript">
 								swal({

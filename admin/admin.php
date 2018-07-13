@@ -2,7 +2,7 @@
 	<div>
 	<div><h2>ADMIN</h2><hr> 
 		<?php 
-			if ($_SESSION['sess_id']<3) {
+			if ($_SESSION['sess_jbt']==1) {
 		 ?>
 		<a type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahadmin">Tambah</a>
 		<a type="button" class="btn btn-danger floatright" data-toggle="modal" data-target="#hapusadmin">Hapus</a>
@@ -12,11 +12,12 @@
 
 
 
-		 <div style="height:400px;overflow-y: scroll; ">
+		 <div style="height:400px;overflow-y: scroll;" class="col-md-12">
 		<?php 
 			$ambil = $koneksi->query(
 										"SELECT * 
-										FROM admin "
+										FROM admin INNER JOIN jabatan
+										ON admin.id_jabatan=jabatan.id_jabatan"
 									);
 										
 			while($pecah = $ambil->fetch_assoc()){ 		?>
@@ -73,8 +74,8 @@
 				</div>
 				<table><br>
 					<tr>
-						<td rowspan="3"><img  class="tampil_foto" id="" width="120px" height="160px" /></td>
-						<td rowspan="3">&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+						<td rowspan="4"><img  class="tampil_foto" id="" width="120px" height="160px" /></td>
+						<td rowspan="4">&nbsp&nbsp&nbsp&nbsp&nbsp</td>
 						<td><input  readonly class="detail namayanginginditampilkan" type="text"></td>
 					</tr>
 					<tr>
@@ -108,37 +109,54 @@
 				<form method="post" enctype="multipart/form-data" autocomplete="off">
 	<div class="form-group">
 		<label>Nama</label>
-		<input type="text" class="form-control" name="nama">
+		<input type="text" class="form-control" name="nama" required="">
 	</div>
-	
-		<div class="form-group">
+	<div class="form-group">
+						<label>Jabatan</label>
+						<?php   $ambil = $koneksi->query(	"SELECT * 
+							FROM jabatan");
+							?>
+							<select class="form-control" name="jabatan" required="">
+
+								<option>Pilih Jabatan</option>
+
+								<?php 
+								while($pecah = $ambil->fetch_assoc()){ 		?>
+
+									<option value="<?php echo $pecah['id_jabatan']; ?>"><?php echo $pecah['nama_jabatan']; ?></option>
+
+									<?php  } ?>
+
+								</select>
+							</div>
+	<div class="form-group">
 		<label>Username</label>
-		<input type="text" class="form-control" name="username">
+		<input type="text" class="form-control" name="username" required="">
 	</div>
 	
 	<div class="form-group">
 		<label>Password</label>
-		<input type="password" class="form-control" name="pass1">
+		<input type="password" class="form-control" name="pass1" required="">
 	</div>
 
 	<div class="form-group">
 		<label>Masukkan Pasword sekali lagi</label>
-		<input type="password" class="form-control" name="pass2">
+		<input type="password" class="form-control" name="pass2" required="">
 	</div>
 	
 	<div class="form-group">
 		<label>Alamat</label>
-		<input type="text" class="form-control" name="alamat">
+		<input type="text" class="form-control" name="alamat" required="">
 	</div>
 
 	<div class="form-group">
 		<label>No Telp</label>
-		<input type="text" class="form-control" name="notel">
+		<input type="text" class="form-control" name="notel" required="">
 	</div>
 	<img src="../assets/img/profil/user.png" id="gambar_admin" width="120px" height="120px" alt="Preview Gambar" />
 	<div class="form-group">
 		<label>Gambar</label>
-		<input type="file" class="form-control" name="foto_admin" id="preview_gambar_admin"/>
+		<input type="file" class="form-control" name="foto_admin" id="preview_gambar_admin" required=""/>
 		<script type="text/javascript">
 								$("#preview_gambar_admin").change(function(){
 
@@ -242,7 +260,7 @@
 -->
 
 <!--   
-===============================================HAPUS MEJA======================================================
+===============================================HAPUS ADMIN======================================================
 -->
 
 <div class="modal fade" id="hapusadmin" tabindex="-1" role="dialog">
@@ -270,7 +288,7 @@
 								while($pecah = $ambil->fetch_assoc()){ 		
 
 
-									if ($pecah['id_admin']>2) {
+									if ($pecah['id_jabatan']!=1) {
 									?>
 							
 									<option value="<?php echo $pecah['id_admin']; ?>">
@@ -310,7 +328,7 @@
 				</div>
 			</div>
 <!--   
-================================================HAPUS MEMBER======================================================
+================================================HAPUS ADMIN======================================================
 -->
 
 </div>
