@@ -27,7 +27,6 @@
 					while($pecah = $ambil->fetch_assoc()){ 	
 					if ($pecah['id_status']==1) {
 					?>
-
 						<form method="post">
 							<div class="lebar128">
 								<a href="index.php?halaman=pesan&nama_meja=<?php echo $pecah['id_meja'] ?>" 
@@ -42,18 +41,17 @@
 								</a>
 							</div>	
 						</form>				
-
 										<?php }
 											else{
 										?>
 
 						<form method="post">
+							<div class="lebar128">
 							<input type="hidden" name="id_meja" value="<?php echo $pecah['id_meja'];?>">
 							<input type="hidden" id="id_meja" value="<?php echo $pecah['id_meja'];?>">
 							<input type="hidden" name="id_admin" value="<?php echo $_SESSION['sess_id'];?>">
 							<input type="hidden" name="id_pelanggan" value="1">
 							<input type="hidden" name="waktu_pesanan" value="<?php echo $waktu_pesan;?>">
-							<div class="lebar128">
 								<button class="noeffect button_noeffect" name="pesan">
 									<div class="thumbnail fotomeja" style="border: 0px !important;">	
 										<div class="nomeja">
@@ -64,8 +62,7 @@
 									</div>
 								</button>
 							</div>
-						</form>	
-															
+						</form>						
 										<?php
 											}
 										 } ?>

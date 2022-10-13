@@ -13,8 +13,8 @@
  ?>
 
 <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Restorant</title>
     <script src="../assets/js/jquery_sweet_alert.min_2.js"></script>
     <script src="../assets/js/sweetalert.min.js"></script>
@@ -27,73 +27,75 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="../assets/css/ganti.css" rel="stylesheet" />
     <link href="../assets/css/sweetalert.min.css" rel="stylesheet" />
- 
+
     <script type="text/javascript">
-        window.setTimeout(" waktu() ",1000);
-        function waktu()
-        {
+        window.setTimeout(" waktu() ", 1000);
+
+        function waktu() {
             var tanggal = new Date();
             var jam = tanggal.getHours();
             var menit = tanggal.getMinutes();
             var detik = tanggal.getSeconds();
             var teskjam = new String();
-            if(jam <= 9)
-                jam = "0"+jam;
-            if(menit <= 9)
-                menit = "0"+menit;
-            if(detik <= 9)
-                detik = "0"+detik;
+            if (jam <= 9)
+                jam = "0" + jam;
+            if (menit <= 9)
+                menit = "0" + menit;
+            if (detik <= 9)
+                detik = "0" + detik;
             teskjam = jam + ":" + menit + ":" + detik;
             document.getElementById("jamdigital").innerHTML = teskjam;
-            setTimeout("waktu()",1000);
+            setTimeout("waktu()", 1000);
         }
 
         function bacaGambar(input) {
 
-        if (input.files && input.files[0]) {
+            if (input.files && input.files[0]) {
 
-                                    var reader = new FileReader();
-                                     reader.onload = function (e) {
-                                                $('#gambar_nodin').attr('src', e.target.result);
-                                                                 }
-                                      reader.readAsDataURL(input.files[0]);
-                                            }
-                                    }
-        $("#preview_gambar").change(function(){
-                                                bacaGambar(this);
-                                                                    });
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#gambar_nodin').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#preview_gambar").change(function () {
+            bacaGambar(this);
+        });
+
         function bacaGambarbaru(input) {
-        if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-                                     reader.onload = function (e) {
-                                               $('#gambar_baru').attr('src', e.target.result);
-                                                                   }
-                                         reader.readAsDataURL(input.files[0]);
-                                            }
-                                    }
-        $("#preview_gambar_baru").change(function(){
-                                                bacaGambarbaru(this);
-                                                                    });
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#gambar_baru').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#preview_gambar_baru").change(function () {
+            bacaGambarbaru(this);
+        });
+
         function bacaGambaradmin(input) {
 
-        if (input.files && input.files[0]) {
+            if (input.files && input.files[0]) {
 
-                                    var reader = new FileReader();
-                                     reader.onload = function (e) {
-                                                $('#gambar_admin').attr('src', e.target.result);
-                                                                 }
-                                      reader.readAsDataURL(input.files[0]);
-                                            }
-                                    }
-        $("#preview_gambar_admin").change(function(){
-                                                bacaGambaradmin(this);
-                                                                    });
-        
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#gambar_admin').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#preview_gambar_admin").change(function () {
+            bacaGambaradmin(this);
+        });
     </script>
 
 
 
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
@@ -106,20 +108,19 @@
                 </button>
                 <div class="jamdigital navbar-brand" id="jamdigital"></div>
             </div>
-            
+
             <div class=" paneljam">
-           
-             &nbsp; <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-             <div class=" paneljam">
-             
-             <?php
+                <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust">Logout</a>
+            </div>
+            <div class=" paneljam">
+
+                <?php
             echo date("  d M Y") . "<br>";
             ?>
-            
+
             </div>
             <div class=" paneljam" id="jamdigital"></div>
-        </nav>   
-          
+        </nav>
 
 
 
@@ -127,27 +128,29 @@
 
 
 
-                <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
+
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-            		<li class="text-center namaadmin">
-                                <img src="../assets/img/logo2.png" class="user-image img-responsive logo_ngajeng" />                              
-            		</li>
-                  
-                <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
-                <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
-                <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a></li>
-                <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
-                <li><a href="index.php?halaman=admin"><i class="fa fa-user fa-3x"></i> Admin</a></li>
-                <li><a href="index.php?halaman=pendapatan"><i class="fa fa-money fa-3x"></i> Pendapatan</a></li>
-                <li><a href="index.php?halaman=penjualan"><i class="fa fa-line-chart fa-3x"></i> Penjualan</a></li>
-                </ul>       
-        </div>
-        </nav>  
-    
+                    <li class="text-center namaadmin">
+                        <img src="../assets/img/logo2.png" class="user-image img-responsive logo_ngajeng" />
+                    </li>
 
-        <div id="page-wrapper" style="max-height: 500px !important;" >
-            <div  id="page-inner" style="max-height: 500px !important;">
+                    <li><a href="index.php"><i class="fa fa-book fa-3x"></i> Meja</a></li>
+                    <li><a href="index.php?halaman=menu"><i class="fa fa-cutlery fa-3x"></i> Menu</a></li>
+                    <li><a href="index.php?halaman=transaksi"><i class="fa fa-shopping-cart fa-3x"></i> Transaksi</a>
+                    </li>
+                    <li><a href="index.php?halaman=member"><i class="fa fa-smile-o fa-3x"></i> Pelanggan</a></li>
+                    <li><a href="index.php?halaman=admin"><i class="fa fa-user fa-3x"></i> Admin</a></li>
+                    <li><a href="index.php?halaman=pendapatan"><i class="fa fa-money fa-3x"></i> Pendapatan</a></li>
+                    <li><a href="index.php?halaman=penjualan"><i class="fa fa-line-chart fa-3x"></i> Penjualan</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div id="page-wrapper" style="max-height: 500px !important;">
+            <div id="page-inner" style="max-height: 500px !important;">
                 <?php 
                     if (isset($_GET['halaman'])) 
                     {
@@ -186,18 +189,19 @@
                     }
                  ?>
             </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
         </div>
-     <!-- /. WRAPPER  -->
-    
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
     <!-- METISMENU SCRIPTS -->
     <script src="../assets/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
+    <!-- MORRIS CHART SCRIPTS -->
     <script src="../assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-   
+    <!-- CUSTOM SCRIPTS -->
+
 </body>
+
 </html>

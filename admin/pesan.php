@@ -76,7 +76,8 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 					<div class="col-md-2 paddingbutton">
 					<input type="hidden" name="id_pesanan" value="<?php echo$id_pesanan_sekarang ?>">
 					<input type="submit" name="kirim" class="btn lebar100" value="Cetak Nota">
-					</div></form>
+					</div>
+				</form>
 	<div class="col-md-2 paddingbutton">
 	<a id="batal" 
 			data-meja="<?php echo $pecah['id_meja'];?>" 
@@ -208,7 +209,7 @@ $id_pesanan_sekarang=$pecah['id_pesanan'];
 					<div class="container col-md-12">
 						<form method="POST" autocomplete="off">
 							<div class="input-group">
-								<span class="input-group-addon"><div class="fa fa-search"></div></span>
+								<span class="input-group-addon"><i class="fa fa-search"></i></span>
 								<input type="text" name="search_text" id="search_text" placeholder="cari.." class="form-control">	
 							</div>
 						</form>
